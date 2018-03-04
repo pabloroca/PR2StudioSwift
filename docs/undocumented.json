@@ -1,0 +1,642 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseTableViewCell.swift",
+      "line": 10,
+      "symbol": "BaseTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseTableViewCell.swift",
+      "line": 14,
+      "symbol": "BaseTableViewCell.init(style:reuseIdentifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseTableViewCell.swift",
+      "line": 20,
+      "symbol": "BaseTableViewCell.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseTableViewCell.swift",
+      "line": 29,
+      "symbol": "BaseTableViewCell.setupLoadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseTableViewCell.swift",
+      "line": 33,
+      "symbol": "BaseTableViewCell.updateConstraints()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseTableViewCell.swift",
+      "line": 44,
+      "symbol": "BaseTableViewCell.setupConstraints()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseTableViewCell.swift",
+      "line": 48,
+      "symbol": "BaseTableViewCell.setupExtraConstraints()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 10,
+      "symbol": "BaseViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 14,
+      "symbol": "BaseViewController.shouldShowViewWaiting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 28,
+      "symbol": "BaseViewController.didSetupConstraints",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 74,
+      "symbol": "BaseViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 82,
+      "symbol": "BaseViewController.updateViewConstraints()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 92,
+      "symbol": "BaseViewController.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 123,
+      "symbol": "BaseViewController.setupTitle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 129,
+      "symbol": "BaseViewController.setupNavigationBar()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/BaseViewController.swift",
+      "line": 162,
+      "symbol": "BaseViewController.showSlowInterNet()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/ConcurrentOperation.swift",
+      "line": 27,
+      "symbol": "ConcurrentOperation.isAsynchronous",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/ConcurrentOperation.swift",
+      "line": 32,
+      "symbol": "ConcurrentOperation.isExecuting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/ConcurrentOperation.swift",
+      "line": 46,
+      "symbol": "ConcurrentOperation.isFinished",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/ConcurrentOperation.swift",
+      "line": 68,
+      "symbol": "ConcurrentOperation.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/Coordinator.swift",
+      "line": 66,
+      "symbol": "AnyCoordinator.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Common.swift",
+      "line": 20,
+      "symbol": "PR2Common.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Common.swift",
+      "line": 40,
+      "symbol": "PR2Common.topMostVC",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Common.swift",
+      "line": 72,
+      "symbol": "PR2Common.canDevicePlaceAPhoneCall()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Common.swift",
+      "line": 94,
+      "symbol": "PR2Common.readJSONFileAsDict(file:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Common.swift",
+      "line": 113,
+      "symbol": "PR2Common.readJSONFileAsArray(file:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Common.swift",
+      "line": 132,
+      "symbol": "PR2Common.documentsDirectory()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Common.swift",
+      "line": 138,
+      "symbol": "PR2Common.fileInDocumentsDirectory(filename:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Common.swift",
+      "line": 164,
+      "symbol": "PR2Common.matchesForRegexInText(text:regex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Constants.swift",
+      "line": 10,
+      "symbol": "PR2Constants",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Constants.swift",
+      "line": 12,
+      "symbol": "PR2Constants.kMarginBig",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Constants.swift",
+      "line": 13,
+      "symbol": "PR2Constants.kMarginNormal",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Constants.swift",
+      "line": 14,
+      "symbol": "PR2Constants.kMarginSmall",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 13,
+      "symbol": "String.PR2DateFormatterFromWeb()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 17,
+      "symbol": "String.PR2DateFormatterFromAPI()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 21,
+      "symbol": "String.PR2DateFormatterFromAPIT()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 25,
+      "symbol": "String.PR2DateFormatterYYYYMMDD()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 29,
+      "symbol": "String.PR2DateFormatterForHeader()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 38,
+      "symbol": "Date.PR2DateFormatterFromAPI()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 43,
+      "symbol": "Date.PR2DateFormatterFromAPIT()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 48,
+      "symbol": "Date.PR2DateFormatterForLog()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 53,
+      "symbol": "Date.PR2DateFormatterUTC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 58,
+      "symbol": "Date.PR2DateFormatterHHMM()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 63,
+      "symbol": "Date.PR2DateFormatterYYYYMMDD()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Dates.swift",
+      "line": 68,
+      "symbol": "Date.PR2DateFormatterForHeader()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Loopable.swift",
+      "line": 47,
+      "symbol": "Loopable.retrieveInputDictionary()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2ModelList.swift",
+      "line": 10,
+      "symbol": "PR2ModelList",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2ModelList.swift",
+      "line": 12,
+      "symbol": "PR2ModelList.rows",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2ModelList.swift",
+      "line": 14,
+      "symbol": "PR2ModelList.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2ModelList.swift",
+      "line": 16,
+      "symbol": "PR2ModelList.numberOfRowsInSection(section:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2ModelList.swift",
+      "line": 20,
+      "symbol": "PR2ModelList.numberOfRows()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2ModelList.swift",
+      "line": 24,
+      "symbol": "PR2ModelList.readData(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Networking.swift",
+      "line": 54,
+      "symbol": "PR2HTTPCode.other",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Networking.swift",
+      "line": 56,
+      "symbol": "PR2HTTPCode.init(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Networking.swift",
+      "line": 98,
+      "symbol": "PR2Networking.tasks",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Networking.swift",
+      "line": 100,
+      "symbol": "PR2Networking.downloadsInProgress",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Networking.swift",
+      "line": 101,
+      "symbol": "PR2Networking.downloadQueue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Networking.swift",
+      "line": 121,
+      "symbol": "PR2Networking.managerReachability",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Networking.swift",
+      "line": 137,
+      "symbol": "PR2Networking.addTask(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2Networking.swift",
+      "line": 147,
+      "symbol": "PR2Networking.addTaskAfterLast(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 12,
+      "symbol": "PR2NetworkTaskStatus",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 13,
+      "symbol": "PR2NetworkTaskStatus.statusCancelled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 13,
+      "symbol": "PR2NetworkTaskStatus.statusPendingToStart",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 13,
+      "symbol": "PR2NetworkTaskStatus.statusRunning",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 13,
+      "symbol": "PR2NetworkTaskStatus.statusSuspended",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 16,
+      "symbol": "PR2NetworkTask",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 17,
+      "symbol": "PR2NetworkTask.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 18,
+      "symbol": "PR2NetworkTask.method",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 19,
+      "symbol": "PR2NetworkTask.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 20,
+      "symbol": "PR2NetworkTask.params",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 21,
+      "symbol": "PR2NetworkTask.headers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 22,
+      "symbol": "PR2NetworkTask.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 23,
+      "symbol": "PR2NetworkTask.accDelay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 24,
+      "symbol": "PR2NetworkTask.pollforUTC",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 26,
+      "symbol": "PR2NetworkTask.request",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 28,
+      "symbol": "PR2NetworkTask.networkOperationCompletionHandler",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 29,
+      "symbol": "PR2NetworkTask.init(method:url:params:headers:priority:pollforUTC:networkOperationCompletionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 59,
+      "symbol": "PR2NetworkTask.main()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PR2NetworkingExtensions.swift",
+      "line": 76,
+      "symbol": "PR2NetworkTask.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PRExtensions.swift",
+      "line": 13,
+      "symbol": "String.stringByAppendingPathComponent(path:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PRExtensions.swift",
+      "line": 20,
+      "symbol": "UIColor.init(red:green:blue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PRExtensions.swift",
+      "line": 31,
+      "symbol": "UIScrollView.scrollToBottom(animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PRExtensions.swift",
+      "line": 39,
+      "symbol": "OperationQueue.addOperationAfterLast(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/PRExtensions.swift",
+      "line": 53,
+      "symbol": "Double.toPriceString(decimalDigits:currencySymbol:thousandsSeparator:decimalSeparator:symbolOnLeft:spaceBetweenAmountAndSymbol:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/Result.swift",
+      "line": null,
+      "symbol": "Result",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/Result.swift",
+      "line": 10,
+      "symbol": "Result",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/Result.swift",
+      "line": 11,
+      "symbol": "Result.success",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/Result.swift",
+      "line": 12,
+      "symbol": "Result.error",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/Result.swift",
+      "line": 15,
+      "symbol": "Result.map(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/UITableView+Extension.swift",
+      "line": 12,
+      "symbol": "UITableView.reloadData(fading:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift/Source/UITableView+Extension.swift",
+      "line": 85,
+      "symbol": "UITableView.layoutHeaderView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/pablorocarozas/Documents/Apps/PR2StudioSwift"
+}

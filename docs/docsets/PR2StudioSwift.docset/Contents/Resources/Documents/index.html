@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PR2StudioSwift  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="PR2StudioSwift  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">PR2StudioSwift Docs</a> (40% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">PR2StudioSwift Reference</a>
+        <img id="carat" src="img/carat.png" />
+        PR2StudioSwift  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/AnyCoordinator.html">AnyCoordinator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/BaseTableViewCell.html">BaseTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/BaseViewController.html">BaseViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ConcurrentOperation.html">ConcurrentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PR2Common.html">PR2Common</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PR2ModelList.html">PR2ModelList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PR2NetworkTask.html">PR2NetworkTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PR2Networking.html">PR2Networking</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/PR2HTTPCode.html">PR2HTTPCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/PR2NetworkTaskStatus.html">PR2NetworkTaskStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/PR2NetworkingLogLevel.html">PR2NetworkingLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Result.html">Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSLayoutConstraint.html">NSLayoutConstraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/OperationQueue.html">OperationQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIScrollView.html">UIScrollView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIStackView.html">UIStackView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UITableView.html">UITableView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/Coordinator.html">Coordinator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Loopable.html">Loopable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/PR2Constants.html">PR2Constants</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PR2NetworkingNotifications.html">PR2NetworkingNotifications</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='pr2studioswift' class='heading'>PR2StudioSwift</h1>
+
+<p><a href="https://travis-ci.org/pabloroca/PR2StudioSwift"><img src="https://travis-ci.org/pabloroca/PR2StudioSwift.svg?branch=master" alt="Build Status"></a>
+<a href="https://cocoapods.org/pods/PR2StudioSwift"><img src="https://img.shields.io/cocoapods/v/PR2StudioSwift.svg" alt="Cocoapods"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift-4.0-red.svg?style=flat" alt="Swift"></a>
+<a href="http://cocoapods.org/pods/PR2StudioSwift"><img src="https://img.shields.io/cocoapods/p/PR2StudioSwift.svg?style=flat" alt="Platform"></a></p>
+<h2 id='contents' class='heading'>Contents</h2>
+
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#jazzy">Documentation</a></li>
+<li><a href="#credits">Credits</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 11.0+</li>
+<li>Xcode 9.0+</li>
+<li>Swift 4.0+</li>
+</ul>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
+<pre class="highlight shell"><code><span class="nv">$ </span>gem <span class="nb">install </span>cocoapods
+</code></pre>
+
+<blockquote>
+<p>CocoaPods 1.1.0+ is required to build PR2StudioSwift</p>
+</blockquote>
+
+<p>To integrate PR2StudioSwift into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+<span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'11.0'</span>
+<span class="n">use_frameworks!</span>
+
+<span class="n">target</span> <span class="s1">'&lt;Your Target Name&gt;'</span> <span class="k">do</span>
+    <span class="n">pod</span> <span class="s1">'PR2StudioSwift'</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Then, run the following command:</p>
+<pre class="highlight shell"><code><span class="nv">$ </span>pod <span class="nb">install</span>
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.</p>
+
+<p>You can install Carthage with <a href="http://brew.sh/">Homebrew</a> using the following command:</p>
+<pre class="highlight shell"><code><span class="nv">$ </span>brew update
+<span class="nv">$ </span>brew <span class="nb">install </span>carthage
+</code></pre>
+
+<p>To integrate PR2StudioSwift into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "pabloroca/PR2StudioSwift"
+</code></pre>
+
+<p>Run <code>carthage update</code> to build the framework and drag the built <code>PR2StudioSwift.framework</code> into your Xcode project.</p>
+<h3 id='manually' class='heading'>Manually</h3>
+
+<p>If you prefer not to use either of the aforementioned dependency managers, you can integrate PR2StudioSwift into your project manually.</p>
+
+<hr>
+<h2 id='jazzy' class='heading'>Jazzy</h2>
+
+<p>Doc generation in ,/docs folder. See it here: <a href="https://rawgit.com/pabloroca/PR2StudioSwift/master/docs/index.html">https://rawgit.com/pabloroca/PR2StudioSwift/master/docs/index.html</a></p>
+
+<p><a href="https://github.com/realm/jazzy">https://github.com/realm/jazzy</a></p>
+
+<p>Script to run</p>
+<pre class="highlight plaintext"><code>jazzy \
+  --clean \
+  --author PabloRoca \
+  --author_url https://pr2studio.com \
+  --module-version 1.00 \
+  --xcodebuild-arguments -scheme,PR2StudioSwift \
+  --module PR2StudioSwift \
+  --output docs \
+  --min-acl internal
+</code></pre>
+<h2 id='credits' class='heading'>Credits</h2>
+
+<p>Pablo Roca Rozas, <a href="mailto:pablorocar@gmail.com">pablorocar@gmail.com</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>PR2StudioSwift is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="https://pr2studio.com" target="_blank" rel="external">PabloRoca</a>. All rights reserved. (Last updated: 2018-03-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
