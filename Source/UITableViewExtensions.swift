@@ -24,7 +24,7 @@ extension UITableView {
         }
     }
 
-    // MARK: - register & dequeue Cells
+    // MARK: - register & dequeue Cells and Header / Footer Cells
 
     /// Gets the identifier for a cell class
     ///
@@ -33,6 +33,8 @@ extension UITableView {
     private func reuseIdentifierForCellClass(cellClass: AnyClass) -> String {
         return String(describing: cellClass.self)
     }
+
+    // MARK: - register & dequeue Cells
 
     /// Registers a cell class for dequeueing. The reuseidentifier will be the class name of the type
     ///
@@ -63,19 +65,11 @@ extension UITableView {
 
     // MARK: - register & dequeue header/footer Cells
 
-    /// Gets the identifier for a Header Footer cell class
-    ///
-    /// - Parameter headerFooterClass: header Footer Class (AnyClass)
-    /// - Returns: identifier as String
-    private func reuseIdentifierForHeaderFooterClass(headerFooterClass: AnyClass) -> String {
-        return String(describing: headerFooterClass.self)
-    }
-
     /// Registers a header/footer class for dequeueing. The reuseidentifier will be the class name of the type
     ///
     /// - Parameter type: The header/footer class to register
     public func registerHeaderFooterClass<T: UITableViewHeaderFooterView>(ofType type: T.Type) {
-        self.register(T.self, forHeaderFooterViewReuseIdentifier: self.reuseIdentifierForHeaderFooterClass(headerFooterClass: type))
+        self.register(T.self, forHeaderFooterViewReuseIdentifier: self.reuseIdentifierForCellClass(cellClass: type))
     }
 
     /// Generic method to dequeue UITableViewHeaderFooterView. Making sure that all force casts are isolated in this extension
@@ -91,7 +85,7 @@ extension UITableView {
     /// - Parameter type: The type of which a new header/footer should be dequeued
     /// - Returns: A UITableViewHeaderFooterView instance of the expected type
     public func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(ofType type: T.Type) -> T {
-        return self.dequeueReusableHeaderFooterView(withIdentifier: self.reuseIdentifierForHeaderFooterClass(headerFooterClass: type))
+        return self.dequeueReusableHeaderFooterView(withIdentifier: self.reuseIdentifierForCellClass(cellClass: type))
     }
 
 }
