@@ -14,7 +14,7 @@ extension UIView {
     /// - Parameters:
     ///   - child: child view
     ///   - constraints: array of constraints
-    open func addSubview(_ child: UIView, constraints: [NSLayoutConstraint]) {
+    public func addSubview(_ child: UIView, constraints: [NSLayoutConstraint]) {
         addSubview(child)
         child.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(constraints)
@@ -27,7 +27,7 @@ extension UIStackView {
     /// - Parameters:
     ///   - child: child view
     ///   - constraints: array of constraints
-    open func addArrangedSubview(_ child: UIView, constraints: [NSLayoutConstraint]) {
+    public func addArrangedSubview(_ child: UIView, constraints: [NSLayoutConstraint]) {
         addArrangedSubview(child)
         NSLayoutConstraint.activate(constraints)
     }
@@ -38,8 +38,9 @@ extension NSLayoutConstraint {
     /// Convenience method that activates each constraint in the contained array, in the same manner as setting active=YES. This is often more efficient than activating each constraint individually.
     ///
     /// - Parameter consviewWaitingtraints: array of constraints
-    open class func activateAndAutoresizingMask(_ constraints: [NSLayoutConstraint]) {
-        _ = constraints.flatMap { $0.firstItem as? UIView }.map { (view) in
+    public class func activateAndAutoresizingMask(_ constraints: [NSLayoutConstraint]) {
+        let views = constraints.flatMap { $0.firstItem as? UIView }
+        views.forEach { view in
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         activate(constraints)
