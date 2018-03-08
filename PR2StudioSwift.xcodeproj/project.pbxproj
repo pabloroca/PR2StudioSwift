@@ -19,7 +19,7 @@
 		6D11C203204B54B10087088C /* PR2Loopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1F3204B54B10087088C /* PR2Loopable.swift */; };
 		6D11C204204B54B10087088C /* PR2NetworkingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1F4204B54B10087088C /* PR2NetworkingExtensions.swift */; };
 		6D11C205204B54B10087088C /* PR2Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1F5204B54B10087088C /* PR2Dates.swift */; };
-		6D11C207204B54B10087088C /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1F7204B54B10087088C /* UITableViewExtensions.swift */; };
+		6D11C207204B54B10087088C /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1F7204B54B10087088C /* UITableView+Extensions.swift */; };
 		6D11C208204B54B10087088C /* PRExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1F8204B54B10087088C /* PRExtensions.swift */; };
 		6D11C20E204B56E70087088C /* PR2StudioSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C20A204B54BA0087088C /* PR2StudioSwiftTests.swift */; };
 		6D11C214204B58EA0087088C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C213204B58EA0087088C /* LICENSE */; };
@@ -58,7 +58,7 @@
 		6D11C1F4204B54B10087088C /* PR2NetworkingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PR2NetworkingExtensions.swift; sourceTree = "<group>"; };
 		6D11C1F5204B54B10087088C /* PR2Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PR2Dates.swift; sourceTree = "<group>"; };
 		6D11C1F6204B54B10087088C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D11C1F7204B54B10087088C /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		6D11C1F7204B54B10087088C /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		6D11C1F8204B54B10087088C /* PRExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRExtensions.swift; sourceTree = "<group>"; };
 		6D11C20A204B54BA0087088C /* PR2StudioSwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PR2StudioSwiftTests.swift; sourceTree = "<group>"; };
 		6D11C20B204B54BA0087088C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 				6D11C1F1204B54B10087088C /* PR2StudioSwift.h */,
 				6D11C1F8204B54B10087088C /* PRExtensions.swift */,
 				6D5005C4204BF9CC00B43185 /* Result.swift */,
-				6D11C1F7204B54B10087088C /* UITableViewExtensions.swift */,
+				6D11C1F7204B54B10087088C /* UITableView+Extensions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 				6D11C1FF204B54B10087088C /* LayoutExtensions.swift in Sources */,
 				6D11C204204B54B10087088C /* PR2NetworkingExtensions.swift in Sources */,
 				6D11C1FE204B54B10087088C /* PR2Common.swift in Sources */,
-				6D11C207204B54B10087088C /* UITableViewExtensions.swift in Sources */,
+				6D11C207204B54B10087088C /* UITableView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
