@@ -14,6 +14,18 @@ import UIKit
     import CoreTelephony
 #endif
 
+/**
+ Swift equivalence of @synchronized in ObjectiveC until a native language alternative comes around.
+ */
+@discardableResult
+public func synchronized<T>(_ object: Any, closure: () throws -> T) rethrows -> T {
+    objc_sync_enter(object)
+    defer {
+        objc_sync_exit(object)
+    }
+    return try closure()
+}
+
 /// Commom functions for any project
 open class PR2Common {
 
