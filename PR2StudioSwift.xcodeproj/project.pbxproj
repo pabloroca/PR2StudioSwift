@@ -6,6 +6,20 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6D959D10205C37D60042B842 /* CommonCryptoModuleMap */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6D959D13205C37D60042B842 /* Build configuration list for PBXAggregateTarget "CommonCryptoModuleMap" */;
+			buildPhases = (
+				6D959D14205C37F60042B842 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = CommonCryptoModuleMap;
+			productName = CommonCryptoModuleMap;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		6D11C1F9204B54B10087088C /* PR2Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1E9204B54B10087088C /* PR2Constants.swift */; };
 		6D11C1FA204B54B10087088C /* PR2Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1EA204B54B10087088C /* PR2Networking.swift */; };
@@ -41,6 +55,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6D668A9A204B1280003B1C35;
 			remoteInfo = PR2StudioSwift;
+		};
+		6D959D15205C382A0042B842 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D668A92204B1280003B1C35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D959D10205C37D60042B842;
+			remoteInfo = CommonCryptoModuleMap;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -206,6 +227,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6D959D16205C382A0042B842 /* PBXTargetDependency */,
 			);
 			name = PR2StudioSwift;
 			productName = PR2StudioSwift;
@@ -248,6 +270,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					6D959D10205C37D60042B842 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 6D668A95204B1280003B1C35 /* Build configuration list for PBXProject "PR2StudioSwift" */;
@@ -264,6 +290,7 @@
 			targets = (
 				6D668A9A204B1280003B1C35 /* PR2StudioSwift */,
 				6D668AA3204B1281003B1C35 /* PR2StudioSwiftTests */,
+				6D959D10205C37D60042B842 /* CommonCryptoModuleMap */,
 			);
 		};
 /* End PBXProject section */
@@ -306,6 +333,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		6D959D14205C37F60042B842 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This if-statement means we'll only run the main script if the CommonCryptoModuleMap directory doesn't exist\n# Because otherwise the rest of the script causes a full recompile for anything where CommonCrypto is a dependency\n# Do a \"Clean Build Folder\" to remove this directory and trigger the rest of the script to run\nif [ -d \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap\" ]; then\necho \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap directory already exists, so skipping the rest of the script.\"\nexit 0\nfi\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap\"\ncat <<EOF > \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap/module.modulemap\"\nmodule CommonCrypto [system] {\n    header \"${SDKROOT}/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nEOF";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -346,6 +386,11 @@
 			isa = PBXTargetDependency;
 			target = 6D668A9A204B1280003B1C35 /* PR2StudioSwift */;
 			targetProxy = 6D668AA6204B1281003B1C35 /* PBXContainerItemProxy */;
+		};
+		6D959D16205C382A0042B842 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D959D10205C37D60042B842 /* CommonCryptoModuleMap */;
+			targetProxy = 6D959D15205C382A0042B842 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -487,6 +532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pr2studio.PR2StudioSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(inherited) ${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -508,6 +554,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pr2studio.PR2StudioSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(inherited) ${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -543,6 +590,24 @@
 			};
 			name = Release;
 		};
+		6D959D11205C37D60042B842 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5KCE3C36M8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6D959D12205C37D60042B842 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5KCE3C36M8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,6 +634,15 @@
 			buildConfigurations = (
 				6D668AB3204B1281003B1C35 /* Debug */,
 				6D668AB4204B1281003B1C35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D959D13205C37D60042B842 /* Build configuration list for PBXAggregateTarget "CommonCryptoModuleMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D959D11205C37D60042B842 /* Debug */,
+				6D959D12205C37D60042B842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
