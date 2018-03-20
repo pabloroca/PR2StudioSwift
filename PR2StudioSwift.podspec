@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PR2StudioSwift"
-  s.version          = "0.3.8"
+  s.version          = "0.3.9"
   s.summary          = "Swift base library used for PR2Studio projects"
 
 # This description is used to generate tags and improve search results.
