@@ -42,6 +42,7 @@
 		6D11C21C204B591B0087088C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C21B204B591B0087088C /* Cartfile */; };
 		6D11C21F204B59650087088C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C21E204B59650087088C /* README.md */; };
 		6D11C221204B596C0087088C /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C220204B596C0087088C /* CHANGELOG.md */; };
+		6D46F4FB206176F4002CB48A /* Crypto+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D46F4FA206176F3002CB48A /* Crypto+Extensions.swift */; };
 		6D5005C5204BF9CC00B43185 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5005C4204BF9CC00B43185 /* Result.swift */; };
 		6D668AA5204B1281003B1C35 /* PR2StudioSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D668A9B204B1280003B1C35 /* PR2StudioSwift.framework */; };
 		6D7452E9204BED440038F237 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7452E8204BED440038F237 /* Coordinator.swift */; };
@@ -90,6 +91,7 @@
 		6D11C21B204B591B0087088C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		6D11C21E204B59650087088C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6D11C220204B596C0087088C /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		6D46F4FA206176F3002CB48A /* Crypto+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Crypto+Extensions.swift"; sourceTree = "<group>"; };
 		6D5005C4204BF9CC00B43185 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		6D668A9B204B1280003B1C35 /* PR2StudioSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PR2StudioSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D668AA4204B1281003B1C35 /* PR2StudioSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PR2StudioSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 				6D11C1EC204B54B10087088C /* BaseViewController.swift */,
 				6D11C1EB204B54B10087088C /* ConcurrentOperation.swift */,
 				6D7452E8204BED440038F237 /* Coordinator.swift */,
+				6D46F4FA206176F3002CB48A /* Crypto+Extensions.swift */,
 				6D11C1F6204B54B10087088C /* Info.plist */,
 				6D11C1EF204B54B10087088C /* LayoutExtensions.swift */,
 				6D11C1EE204B54B10087088C /* PR2Common.swift */,
@@ -367,6 +370,7 @@
 				6D11C1FF204B54B10087088C /* LayoutExtensions.swift in Sources */,
 				6D11C204204B54B10087088C /* PR2NetworkingExtensions.swift in Sources */,
 				6D11C1FE204B54B10087088C /* PR2Common.swift in Sources */,
+				6D46F4FB206176F4002CB48A /* Crypto+Extensions.swift in Sources */,
 				6D11C207204B54B10087088C /* UITableView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
