@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UICollectionView {
+public extension UICollectionView {
 
     /// Gets the identifier for a cell class
     ///
