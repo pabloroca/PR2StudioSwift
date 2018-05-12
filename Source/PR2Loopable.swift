@@ -61,7 +61,7 @@ extension Loopable {
             let allProperties = try self.allProperties()
             return "("+String(describing: type(of: self))+") " +
                 "<\(UnsafeMutableRawPointer(Unmanaged.passUnretained(self as AnyObject).toOpaque()))>\n" +
-                (allProperties.flatMap({"\($0): \($1)"}) as Array).joined(separator: "\n")
+                (allProperties.compactMap({"\($0): \($1)"}) as Array).joined(separator: "\n")
         } catch {
             return ""
         }

@@ -39,7 +39,7 @@ extension NSLayoutConstraint {
     ///
     /// - Parameter consviewWaitingtraints: array of constraints
     public class func activateAndAutoresizingMask(_ constraints: [NSLayoutConstraint]) {
-        let views = constraints.flatMap { $0.firstItem as? UIView }
+        let views = constraints.compactMap { $0.firstItem as? UIView }
         views.forEach { view in
             view.translatesAutoresizingMaskIntoConstraints = false
         }
