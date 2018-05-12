@@ -7,11 +7,11 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
 
     // MARK: - Elegant load animation
 
-    public func reloadData(fading: Bool) {
+    func reloadData(fading: Bool) {
         if fading {
             let transition = CATransition()
             transition.type = kCATransitionFade
