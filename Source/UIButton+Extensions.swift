@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIButton {
+public extension UIButton {
     func setBackgroundColor(color: UIColor, forState: UIControlState) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
         UIGraphicsGetCurrentContext()!.setFillColor(color.cgColor)

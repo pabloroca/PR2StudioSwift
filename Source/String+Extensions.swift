@@ -8,12 +8,13 @@
 
 import Foundation
 
-extension StringProtocol {
+public extension StringProtocol {
     var ascii: [Int] {
         return unicodeScalars.filter {$0.isASCII}.map {Int($0.value)}
     }
 }
-extension Character {
+
+public extension Character {
     var ascii: Int? {
         return Int(String(self).unicodeScalars.filter {$0.isASCII}.first?.value ?? 0)
     }
