@@ -10,12 +10,17 @@ import UIKit
 
 public class PR2ViewWaiting: UIView {
 
+    public var message: String = "" {
+        didSet {
+            self.lblWaiting.text = message
+        }
+    }
+
     private lazy var lblWaiting: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.black
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textAlignment = .center
-        label.text = "Loading data ..."
         return label
     }()
 
@@ -25,8 +30,9 @@ public class PR2ViewWaiting: UIView {
         return activityIndicator
     }()
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    public init(message: String = "Loading data ...") {
+        super.init(frame: .zero)
+        self.lblWaiting.text = message
         configureUI()
     }
 
