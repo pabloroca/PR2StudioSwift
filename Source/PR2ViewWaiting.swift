@@ -39,12 +39,14 @@ public class PR2ViewWaiting: UIView {
         isHidden = true
 
         addSubview(waitingIndicator)
+        waitingIndicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             waitingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             waitingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
 
         addSubview(lblWaiting)
+        lblWaiting.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lblWaiting.topAnchor.constraint(equalTo: topAnchor),
             lblWaiting.leadingAnchor.constraint(equalTo: leadingAnchor),
