@@ -6,20 +6,6 @@
 	objectVersion = 48;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		6D959D10205C37D60042B842 /* CommonCryptoModuleMap */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 6D959D13205C37D60042B842 /* Build configuration list for PBXAggregateTarget "CommonCryptoModuleMap" */;
-			buildPhases = (
-				6D959D14205C37F60042B842 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = CommonCryptoModuleMap;
-			productName = CommonCryptoModuleMap;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		5F47F2BC208DDA5D00E4605E /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47F2BB208DDA5D00E4605E /* UICollectionView+Extensions.swift */; };
 		6D11C1F9204B54B10087088C /* PR2Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1E9204B54B10087088C /* PR2Constants.swift */; };
@@ -45,7 +31,6 @@
 		6D11C221204B596C0087088C /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C220204B596C0087088C /* CHANGELOG.md */; };
 		6D453F5A20B02818005A3F98 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D453F5920B02818005A3F98 /* UIButton+Extensions.swift */; };
 		6D453F5C20B0285D005A3F98 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D453F5B20B0285D005A3F98 /* String+Extensions.swift */; };
-		6D46F4FB206176F4002CB48A /* Crypto+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D46F4FA206176F3002CB48A /* Crypto+Extensions.swift */; };
 		6D5005C5204BF9CC00B43185 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5005C4204BF9CC00B43185 /* Result.swift */; };
 		6D668AA5204B1281003B1C35 /* PR2StudioSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D668A9B204B1280003B1C35 /* PR2StudioSwift.framework */; };
 		6D7452E9204BED440038F237 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7452E8204BED440038F237 /* Coordinator.swift */; };
@@ -60,13 +45,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6D668A9A204B1280003B1C35;
 			remoteInfo = PR2StudioSwift;
-		};
-		6D727C2C215FE98A0030B0F8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6D668A92204B1280003B1C35 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6D959D10205C37D60042B842;
-			remoteInfo = CommonCryptoModuleMap;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -97,7 +75,6 @@
 		6D11C220204B596C0087088C /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		6D453F5920B02818005A3F98 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		6D453F5B20B0285D005A3F98 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		6D46F4FA206176F3002CB48A /* Crypto+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Crypto+Extensions.swift"; sourceTree = "<group>"; };
 		6D5005C4204BF9CC00B43185 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		6D668A9B204B1280003B1C35 /* PR2StudioSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PR2StudioSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D668AA4204B1281003B1C35 /* PR2StudioSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PR2StudioSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +110,6 @@
 				6D11C1EC204B54B10087088C /* BaseViewController.swift */,
 				6D11C1EB204B54B10087088C /* ConcurrentOperation.swift */,
 				6D7452E8204BED440038F237 /* Coordinator.swift */,
-				6D46F4FA206176F3002CB48A /* Crypto+Extensions.swift */,
 				6D11C1F6204B54B10087088C /* Info.plist */,
 				6D11C1EF204B54B10087088C /* LayoutExtensions.swift */,
 				6D11C1EE204B54B10087088C /* PR2Common.swift */,
@@ -241,7 +217,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6D727C2D215FE98A0030B0F8 /* PBXTargetDependency */,
 			);
 			name = PR2StudioSwift;
 			productName = PR2StudioSwift;
@@ -286,10 +261,6 @@
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
-					6D959D10205C37D60042B842 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 6D668A95204B1280003B1C35 /* Build configuration list for PBXProject "PR2StudioSwift" */;
@@ -306,7 +277,6 @@
 			targets = (
 				6D668A9A204B1280003B1C35 /* PR2StudioSwift */,
 				6D668AA3204B1281003B1C35 /* PR2StudioSwiftTests */,
-				6D959D10205C37D60042B842 /* CommonCryptoModuleMap */,
 			);
 		};
 /* End PBXProject section */
@@ -369,19 +339,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		6D959D14205C37F60042B842 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This if-statement means we'll only run the main script if the CommonCryptoModuleMap directory doesn't exist\n# Because otherwise the rest of the script causes a full recompile for anything where CommonCrypto is a dependency\n# Do a \"Clean Build Folder\" to remove this directory and trigger the rest of the script to run\nif [ -d \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap\" ]; then\necho \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap directory already exists, so skipping the rest of the script.\"\nexit 0\nfi\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap\"\ncat <<EOF > \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap/module.modulemap\"\nmodule CommonCrypto [system] {\n    header \"${SDKROOT}/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nEOF\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -407,7 +364,6 @@
 				6D453F5A20B02818005A3F98 /* UIButton+Extensions.swift in Sources */,
 				6D11C204204B54B10087088C /* PR2NetworkingExtensions.swift in Sources */,
 				6D11C1FE204B54B10087088C /* PR2Common.swift in Sources */,
-				6D46F4FB206176F4002CB48A /* Crypto+Extensions.swift in Sources */,
 				6D11C207204B54B10087088C /* UITableView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,11 +383,6 @@
 			isa = PBXTargetDependency;
 			target = 6D668A9A204B1280003B1C35 /* PR2StudioSwift */;
 			targetProxy = 6D668AA6204B1281003B1C35 /* PBXContainerItemProxy */;
-		};
-		6D727C2D215FE98A0030B0F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6D959D10205C37D60042B842 /* CommonCryptoModuleMap */;
-			targetProxy = 6D727C2C215FE98A0030B0F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -637,26 +588,6 @@
 			};
 			name = Release;
 		};
-		6D959D11205C37D60042B842 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5KCE3C36M8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.1;
-			};
-			name = Debug;
-		};
-		6D959D12205C37D60042B842 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5KCE3C36M8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -683,15 +614,6 @@
 			buildConfigurations = (
 				6D668AB3204B1281003B1C35 /* Debug */,
 				6D668AB4204B1281003B1C35 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6D959D13205C37D60042B842 /* Build configuration list for PBXAggregateTarget "CommonCryptoModuleMap" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6D959D11205C37D60042B842 /* Debug */,
-				6D959D12205C37D60042B842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
