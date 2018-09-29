@@ -90,7 +90,7 @@ public struct PR2NetworkingNotifications {
 /// Main network request class (wrapper of Alamofire request)
 open class PR2Networking {
     /// it converts itself as a singleton
-    open static let sharedInstance = PR2Networking()
+    public static let sharedInstance = PR2Networking()
 
     /// Networking log levels
     open var logLevel: PR2NetworkingLogLevel = .pr2NetworkingLogLevelOff

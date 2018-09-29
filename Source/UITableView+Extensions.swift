@@ -14,9 +14,9 @@ public extension UITableView {
     func reloadData(fading: Bool) {
         if fading {
             let transition = CATransition()
-            transition.type = kCATransitionFade
-            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-            transition.fillMode = kCAFillModeForwards
+            transition.type = CATransitionType.fade
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+            transition.fillMode = CAMediaTimingFillMode.forwards
             transition.duration = 0.2
             layer.add(transition, forKey: "fadeOnReloadAnimation")
 

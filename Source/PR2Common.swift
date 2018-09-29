@@ -73,8 +73,8 @@ open class PR2Common {
      */
     open func simpleAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message:
-            message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
 
         if let rootViewController = self.topMostVC {
             rootViewController.present(alertController, animated: true, completion: nil)

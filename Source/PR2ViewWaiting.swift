@@ -26,7 +26,7 @@ public class PR2ViewWaiting: UIView {
 
     private lazy var waitingIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.activityIndicatorViewStyle = .gray
+        activityIndicator.style = .gray
         return activityIndicator
     }()
 

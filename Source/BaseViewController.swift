@@ -67,7 +67,7 @@ open class BaseViewController: UIViewController {
 
     private let waitingIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.activityIndicatorViewStyle = .gray
+        activityIndicator.style = .gray
         return activityIndicator
     }()
 
@@ -103,7 +103,7 @@ open class BaseViewController: UIViewController {
         viewWaiting.addSubview(lblWaiting)
         viewWaiting.addSubview(waitingIndicator)
 
-        view.bringSubview(toFront: viewWaiting)
+        view.bringSubviewToFront(viewWaiting)
     }
 
     private func setupConstraints() {
