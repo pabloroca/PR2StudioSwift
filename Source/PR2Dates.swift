@@ -69,6 +69,11 @@ extension Date {
         return DateFormatter.PR2DateFormatterForHeader.string(from: self)
     }
 
+    // Date in EEEE, d MMM
+    public func PR2DateFormatterDayWeek() -> String {
+        return DateFormatter.PR2DateFormatterDayWeek.string(from: self)
+    }
+
 }
 
 extension DateFormatter {
@@ -121,6 +126,12 @@ extension DateFormatter {
     fileprivate static let PR2DateFormatterForHeader: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd., EEE"
+        return formatter
+    }()
+
+    fileprivate static let PR2DateFormatterDayWeek: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, d MMM"
         return formatter
     }()
 }
