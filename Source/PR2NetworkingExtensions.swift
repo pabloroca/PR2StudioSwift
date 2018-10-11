@@ -26,7 +26,7 @@ public class PR2NetworkTask: ConcurrentOperation {
     weak var request: Alamofire.Request?
 
     let networkOperationCompletionHandler: (_ success: Bool, _ response: DataResponse<Any>) -> Void
-    init(method: String = "GET", url: String, params: [String: AnyObject]? = nil, headers: [String: String]? = nil, priority: Operation.QueuePriority = Operation.QueuePriority.normal, pollforUTC: Double = 0, networkOperationCompletionHandler: @escaping (_ success: Bool, _ response: DataResponse<Any>) -> Void) {
+    public init(method: String = "GET", url: String, params: [String: AnyObject]? = nil, headers: [String: String]? = nil, priority: Operation.QueuePriority = Operation.QueuePriority.normal, pollforUTC: Double = 0, networkOperationCompletionHandler: @escaping (_ success: Bool, _ response: DataResponse<Any>) -> Void) {
 
         self.id = UUID().uuidString
         self.method = HTTPMethod(rawValue: method)!
