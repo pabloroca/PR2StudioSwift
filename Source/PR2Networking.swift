@@ -53,7 +53,7 @@ public enum PR2HTTPCode {
     case c500InternalServerError
     case other
 
-    init(value: Int) {
+    public init(value: Int) {
         switch value {
         case 200:
             self = .c200OK
