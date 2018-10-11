@@ -88,14 +88,14 @@ public struct PR2NetworkingNotifications {
 }
 
 /// Main network request class (wrapper of Alamofire request)
-open class PR2Networking {
+public class PR2Networking {
     /// it converts itself as a singleton
     public static let sharedInstance = PR2Networking()
 
     /// Networking log levels
-    open var logLevel: PR2NetworkingLogLevel = .pr2NetworkingLogLevelOff
+    public var logLevel: PR2NetworkingLogLevel = .pr2NetworkingLogLevelOff
 
-    open var tasks: [PR2NetworkTask] = []
+    public var tasks: [PR2NetworkTask] = []
 
     lazy var downloadsInProgress = [IndexPath: Operation]()
     lazy var downloadQueue: OperationQueue = {
@@ -134,7 +134,7 @@ open class PR2Networking {
 
     }
 
-    open func addTask(_ task: PR2NetworkTask) {
+    public func addTask(_ task: PR2NetworkTask) {
         let mytask = task
         mytask.status = PR2NetworkTaskStatus.statusRunning
         self.tasks.append(mytask)
@@ -144,7 +144,7 @@ open class PR2Networking {
         print("task added %@", mytask.url)
     }
 
-    open func addTaskAfterLast(_ task: PR2NetworkTask) {
+    public func addTaskAfterLast(_ task: PR2NetworkTask) {
         let mytask = task
         mytask.status = PR2NetworkTaskStatus.statusRunning
         self.tasks.append(mytask)
@@ -164,7 +164,7 @@ open class PR2Networking {
     ///  - parameter encoding:   The parameter encoding. .URL by default.
     ///  - parameter headers:    The HTTP headers. nil by default.
     ///  - parameter completionHandler:    Completion handler.
-    open func request(
+    public func request(
         _ delay: Double,
         method: HTTPMethod,
         urlString: String,
@@ -325,7 +325,7 @@ open class PR2Networking {
         case .pr2NetworkingLogLevelOff:
             break
         case .pr2NetworkingLogLevelDebug:
-            var dictResponseHeaders: NSDictionary? = nil
+            var dictResponseHeaders: NSDictionary?
             if let httpResponse = response.response {
                 dictResponseHeaders = httpResponse.allHeaderFields as NSDictionary
                 // prepare dictDefaultHeaders for printing
@@ -373,7 +373,7 @@ open class PR2Networking {
     /// userAgent: Generates user agent from Info.plist
     /// example: SkyPablo:1.0.1/IOS:9.2/x86_64
     /// - returns: String
-    open func userAgent() -> String {
+    public func userAgent() -> String {
         var userAgent: String = "Unknown"
         if let info = Bundle.main.infoDictionary {
             let executable: AnyObject = info[kCFBundleExecutableKey as String] as AnyObject
