@@ -13,7 +13,7 @@ public enum PR2NetworkTaskStatus {
     case statusPendingToStart, statusRunning, statusSuspended, statusCancelled
 }
 
-open class PR2NetworkTask: ConcurrentOperation {
+public class PR2NetworkTask: ConcurrentOperation {
     var id: String
     var method: HTTPMethod
     var url: String
@@ -56,7 +56,7 @@ open class PR2NetworkTask: ConcurrentOperation {
         }
     }
 
-    override open func main() {
+    override public func main() {
         if self.isCancelled {
             return
         }
@@ -73,7 +73,7 @@ open class PR2NetworkTask: ConcurrentOperation {
 
     }
 
-    override open func cancel() {
+    override public func cancel() {
         self.status = PR2NetworkTaskStatus.statusCancelled
         request?.cancel()
         super.cancel()
