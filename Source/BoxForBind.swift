@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BoxForBind<T> {
+public final class BoxForBind<T> {
     typealias Listener = (T) -> Void
     var listener: Listener?
 

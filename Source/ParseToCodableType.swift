@@ -12,9 +12,9 @@ import Foundation
 
 public final class ParseToCodableType {
 
-    // MARK: - Internal Methods
+    // MARK: - Methods
 
-    static func asynchronous<TypeTo: Decodable>(toType: TypeTo.Type, key: String, bundle: Bundle? = nil, completion: @escaping (Result<TypeTo>) -> Void) {
+    public static func asynchronous<TypeTo: Decodable>(toType: TypeTo.Type, key: String, bundle: Bundle? = nil, completion: @escaping (Result<TypeTo>) -> Void) {
         if let inputString = ProcessInfo.processInfo.environment[key] ?? Stubs.sharedInstance.resultForMethod[key] {
             ParseToCodableType.fromJSONStringAsync(inputString, toType: toType) { result in
                 DispatchQueue.main.async {
@@ -30,7 +30,7 @@ public final class ParseToCodableType {
         }
     }
 
-    static func synchronous<TypeTo: Decodable>(toType: TypeTo.Type, key: String, bundle: Bundle? = nil) -> Result<TypeTo> {
+    public static func synchronous<TypeTo: Decodable>(toType: TypeTo.Type, key: String, bundle: Bundle? = nil) -> Result<TypeTo> {
         if let inputString = ProcessInfo.processInfo.environment[key] ?? Stubs.sharedInstance.resultForMethod[key] {
             return ParseToCodableType.fromJSONString(inputString, toType: toType)
         } else {
