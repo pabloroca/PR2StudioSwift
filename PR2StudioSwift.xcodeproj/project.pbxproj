@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F2A8C7621D6341200E32006 /* StubHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A8C7521D6341200E32006 /* StubHelpers.swift */; };
 		5F47F2BC208DDA5D00E4605E /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47F2BB208DDA5D00E4605E /* UICollectionView+Extensions.swift */; };
+		5FB0ED6321D6321800BDB7A5 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0ED6021D6321800BDB7A5 /* JSONHelper.swift */; };
+		5FB0ED6421D6321800BDB7A5 /* BoxForBind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0ED6121D6321800BDB7A5 /* BoxForBind.swift */; };
+		5FB0ED6521D6321800BDB7A5 /* ParseToCodableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0ED6221D6321800BDB7A5 /* ParseToCodableType.swift */; };
 		6D11C1F9204B54B10087088C /* PR2Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1E9204B54B10087088C /* PR2Constants.swift */; };
 		6D11C1FA204B54B10087088C /* PR2Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1EA204B54B10087088C /* PR2Networking.swift */; };
 		6D11C1FB204B54B10087088C /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C1EB204B54B10087088C /* ConcurrentOperation.swift */; };
@@ -49,7 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F2A8C7521D6341200E32006 /* StubHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubHelpers.swift; sourceTree = "<group>"; };
 		5F47F2BB208DDA5D00E4605E /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		5FB0ED6021D6321800BDB7A5 /* JSONHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		5FB0ED6121D6321800BDB7A5 /* BoxForBind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxForBind.swift; sourceTree = "<group>"; };
+		5FB0ED6221D6321800BDB7A5 /* ParseToCodableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseToCodableType.swift; sourceTree = "<group>"; };
 		6D11C1E9204B54B10087088C /* PR2Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PR2Constants.swift; sourceTree = "<group>"; };
 		6D11C1EA204B54B10087088C /* PR2Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PR2Networking.swift; sourceTree = "<group>"; };
 		6D11C1EB204B54B10087088C /* ConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
@@ -106,12 +114,16 @@
 		6D11C1E8204B54B10087088C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5F2A8C7521D6341200E32006 /* StubHelpers.swift */,
 				6D11C1ED204B54B10087088C /* BaseTableViewCell.swift */,
 				6D11C1EC204B54B10087088C /* BaseViewController.swift */,
+				5FB0ED6121D6321800BDB7A5 /* BoxForBind.swift */,
 				6D11C1EB204B54B10087088C /* ConcurrentOperation.swift */,
 				6D7452E8204BED440038F237 /* Coordinator.swift */,
 				6D11C1F6204B54B10087088C /* Info.plist */,
+				5FB0ED6021D6321800BDB7A5 /* JSONHelper.swift */,
 				6D11C1EF204B54B10087088C /* LayoutExtensions.swift */,
+				5FB0ED6221D6321800BDB7A5 /* ParseToCodableType.swift */,
 				6D11C1EE204B54B10087088C /* PR2Common.swift */,
 				6D11C1E9204B54B10087088C /* PR2Constants.swift */,
 				6D11C1F5204B54B10087088C /* PR2Dates.swift */,
@@ -120,13 +132,13 @@
 				6D11C1EA204B54B10087088C /* PR2Networking.swift */,
 				6D11C1F4204B54B10087088C /* PR2NetworkingExtensions.swift */,
 				6D11C1F1204B54B10087088C /* PR2StudioSwift.h */,
+				6DA6FBE120C44FC9006AD2A9 /* PR2ViewWaiting.swift */,
 				6D11C1F8204B54B10087088C /* PRExtensions.swift */,
 				6D5005C4204BF9CC00B43185 /* Result.swift */,
 				6D453F5B20B0285D005A3F98 /* String+Extensions.swift */,
 				6D453F5920B02818005A3F98 /* UIButton+Extensions.swift */,
 				5F47F2BB208DDA5D00E4605E /* UICollectionView+Extensions.swift */,
 				6D11C1F7204B54B10087088C /* UITableView+Extensions.swift */,
-				6DA6FBE120C44FC9006AD2A9 /* PR2ViewWaiting.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -355,7 +367,11 @@
 				6D11C1FD204B54B10087088C /* BaseTableViewCell.swift in Sources */,
 				6D5005C5204BF9CC00B43185 /* Result.swift in Sources */,
 				6D11C203204B54B10087088C /* PR2Loopable.swift in Sources */,
+				5FB0ED6321D6321800BDB7A5 /* JSONHelper.swift in Sources */,
 				6D11C1F9204B54B10087088C /* PR2Constants.swift in Sources */,
+				5FB0ED6521D6321800BDB7A5 /* ParseToCodableType.swift in Sources */,
+				5FB0ED6421D6321800BDB7A5 /* BoxForBind.swift in Sources */,
+				5F2A8C7621D6341200E32006 /* StubHelpers.swift in Sources */,
 				6D11C208204B54B10087088C /* PRExtensions.swift in Sources */,
 				6D11C202204B54B10087088C /* PR2ModelList.swift in Sources */,
 				6D11C1FF204B54B10087088C /* LayoutExtensions.swift in Sources */,
