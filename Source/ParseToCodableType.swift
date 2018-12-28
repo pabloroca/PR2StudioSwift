@@ -43,13 +43,13 @@ public final class ParseToCodableType {
     private static func fromDictionary<TypeTo: Decodable>(_ dictionary: [String: Any], toType: TypeTo.Type) -> Result<TypeTo> {
         // NOTE: we could specialize more the error if TPAError could be DeCodable
         if (dictionary["TPAError"] as? [String: Any]) != nil {
-            return .error(NSError(domain: "", code: -1, userInfo: nil))
+            return .failure(NSError(domain: "", code: -1, userInfo: nil))
         } else {
             guard
                 let theJSONData = try? JSONSerialization.data(withJSONObject: dictionary, options: []),
                 let typeParsed = try? JSONDecoder().decode(toType.self, from: theJSONData)
                 else {
-                    return .error(NSError(domain: "", code: -1, userInfo: nil))
+                    return .failure(NSError(domain: "", code: -1, userInfo: nil))
             }
             return .success(typeParsed)
         }

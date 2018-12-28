@@ -9,15 +9,15 @@ import Foundation
 
 public enum Result<Value> {
     case success(Value)
-    case error(Swift.Error)
+    case failure(Swift.Error)
 
     // Allow optional transforms (chaining).
     public func map<TransformedElement>(_ transform: (Value) throws -> TransformedElement) rethrows -> Result<TransformedElement> {
         switch self {
         case .success(let val):
             return Result<TransformedElement>.success(try transform(val))
-        case .error(let error):
-            return Result<TransformedElement>.error(error)
+        case .failure(let error):
+            return Result<TransformedElement>.failure(error)
         }
     }
 
@@ -28,7 +28,7 @@ extension Result: CustomStringConvertible {
         switch self {
         case .success(let value):
             return "Result(\(value))"
-        case .error(let error):
+        case .failure(let error):
             return "Result(\(error))"
         }
     }
