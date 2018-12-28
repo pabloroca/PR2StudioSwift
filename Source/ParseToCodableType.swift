@@ -10,7 +10,7 @@ import Foundation
 
 /// Parse data to a Codable Tyoe
 
-final class ParseToCodableType {
+public final class ParseToCodableType {
 
     // MARK: - Internal Methods
 

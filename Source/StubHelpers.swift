@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Singleton for Unit Tests.
 
 /// Singleton who contains stubbed results to override the default JSON results
-final class Stubs {
+public final class Stubs {
     static let sharedInstance = Stubs()
     private init() {} //This prevents others from using the default '()' initializer for this class.
     // a dictionary of method name and a string with the stubbed result
