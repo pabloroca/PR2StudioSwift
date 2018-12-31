@@ -75,7 +75,7 @@ public final class ParseToCodableType {
     }
 
     private static func fromJSONFileAsync<TypeTo: Decodable>(_ inputJSONFile: String, toType: TypeTo.Type, bundle: Bundle? = nil, completion: @escaping (Result<TypeTo>) -> Void) {
-        let dictionary: [String: Any] = JSONHelper.readJSONFileAsDictionary(file: inputJSONFile)
+        let dictionary: [String: Any] = JSONHelper.readJSONFileAsDictionary(file: inputJSONFile, bundle: bundle)
         let result = ParseToCodableType.fromJSONFile(inputJSONFile, toType: toType.self, bundle: bundle)
         ParseToCodableType.asynchronousEnd(dictionary: dictionary, result: result) { result in
             completion(result)
