@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PR2ViewWaiting: UIView {
+public final class PR2ViewWaiting: UIView {
 
     public var message: String = "" {
         didSet {
