@@ -82,7 +82,7 @@ public final class NetworkSession {
                     } else if let retryDelay = self.retryConfiguration?.retryDelay, retryDelay > 0 {
                         retryDelayCalculated = retryDelay
                     }
-                    self.retryWithDelay(retryDelayCalculated, retryMode: retryMode, request: request, responseObject: responseObject, completionHandler: { (response) in
+                    self.retryWithDelay(retryDelayCalculated, retryMode: retryMode, request: requestVar, responseObject: responseObject, completionHandler: { (response) in
                         let responseObject = Response(data: response.data, response: response.response, error: response.error)
                         completionHandler(responseObject)
                     })
