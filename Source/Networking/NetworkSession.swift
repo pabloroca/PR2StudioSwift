@@ -73,31 +73,50 @@ public final class NetworkSession {
                     // reachability
                 } else {
                     // retrier
-                    self.dataTask(request, completionHandler: { (response) in
-                        let responseObject = Response(data: data, response: httpResponse, error: error as? NetworkingError)
+                    var retryDelayCalculated: Double = 0
+                    var retryMode: RetryMode = .session
+
+                    if let retryDelayRequest = request.retryConfiguration?.retryDelay, retryDelayRequest > 0 {
+                        retryDelayCalculated = retryDelayRequest
+                        retryMode = .request
+                    } else if let retryDelay = self.retryConfiguration?.retryDelay, retryDelay > 0 {
+                        retryDelayCalculated = retryDelay
+                    }
+                    self.retryWithDelay(retryDelayCalculated, retryMode: retryMode, request: request, responseObject: responseObject, completionHandler: { (response) in
+                        let responseObject = Response(data: response.data, response: response.response, error: response.error)
                         completionHandler(responseObject)
                     })
-
-                    if let retryDelay = self.retryConfiguration?.retryDelay, retryDelay > 0 {
-                        let newretryDelay = retryDelay + 1
-                        guard let maximumretryDelay = self.retryConfiguration?.maximumretryDelay else {
-                            return completionHandler(responseObject)
-                        }
-                        NetworkSession.shared.retryConfiguration?.retryDelay = newretryDelay
-                        if newretryDelay > maximumretryDelay {
-                            completionHandler(responseObject)
-                        } else {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + Double(Int64(newretryDelay))) {
-                                self.dataTask(request, completionHandler: { (response) in
-                                    completionHandler(responseObject)
-                                })
-                            }
-                        }
-                    }
                 }
             }
             }.resume()
 
+    }
+
+    private func retryWithDelay(_ retryDelay: Double, retryMode: RetryMode, request: URLRequest, responseObject: Response, completionHandler: @escaping (_ response: Response) -> Void) {
+        var maximumretryDelay: Double = 0
+        var newRequest = request
+        let newretryDelay = retryDelay + 1
+
+        switch retryMode {
+        case .request:
+            maximumretryDelay = request.retryConfiguration?.maximumretryDelay ?? 0
+        case .session:
+            maximumretryDelay = self.retryConfiguration?.maximumretryDelay ?? 0
+        }
+
+        newRequest.retryConfiguration?.retryDelay = newretryDelay
+
+        if newretryDelay > maximumretryDelay {
+            completionHandler(responseObject)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(Int64(newretryDelay))) {
+                self.dataTask(newRequest, completionHandler: { (response) in
+                    let httpResponse = response.response
+                    let responseObject = Response(data: response.data, response: httpResponse, error: response.error)
+                    completionHandler(responseObject)
+                })
+            }
+        }
     }
 
     /// shouldCancelRequestbyError: if the request error non temporary then we fail and cancel any further request

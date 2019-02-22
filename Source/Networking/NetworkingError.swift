@@ -9,10 +9,15 @@
 import Foundation
 
 public enum NetworkingError: Error {
+    case dataTaskError(underlyingError: DataTaskError)
     case buildRequestError(underlyingError: BuildRequestError)
     case genericError(underlyingError: Error)
 }
 
 public enum BuildRequestError: String, Error {
     case encodingFailed = "Parameter encoding failed."
+}
+
+public enum DataTaskError: String, Error {
+    case responseFailed = "Getting response failed."
 }

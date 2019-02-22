@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum RetryMode {
+    case request
+    case session
+}
+
 public struct RetryConfiguration {
     /// initial retry delay
     var retryDelay: Double = 1.0  // in seconds

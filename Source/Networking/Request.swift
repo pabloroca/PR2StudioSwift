@@ -44,6 +44,20 @@ public extension URLRequest {
         }
     }
 
+    private static var _retryConfiguration = [String: RetryConfiguration?]()
+
+    /// Request retryConfiguration
+    public var retryConfiguration: RetryConfiguration? {
+        get {
+            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
+            return URLRequest._retryConfiguration[tmpAddress] ?? nil
+        }
+        set(newValue) {
+            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
+            URLRequest._retryConfiguration[tmpAddress] = newValue
+        }
+    }
+
     // MARK: - methods
 
     /// Builds a request
@@ -55,7 +69,7 @@ public extension URLRequest {
     ///   - encoding: parameters encoding (defaults to json and body)
     ///   - headers: headers [String: String]?
     ///   - bearerToken: Auth bearer token String?
-    public init?(_ url: String, method: HTTPMethod = .get, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = .url, headers: [String: String]? = nil, bearerToken: String? = nil) {
+    public init?(_ url: String, method: HTTPMethod = .get, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = .url, headers: [String: String]? = nil, retryConfiguration: RetryConfiguration? = nil, bearerToken: String? = nil) {
         guard let url = URL(string: url) else {
             return nil
         }
@@ -63,6 +77,7 @@ public extension URLRequest {
         self.httpMethod = method.rawValue
         self.allHTTPHeaderFields = headers
         self.id = UUID().uuidString
+        self.retryConfiguration = retryConfiguration
         if let parameters = parameters as? [String: String], let encoding = encoding {
             do {
                 if encoding == .url {
