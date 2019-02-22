@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkSession.shared.setup(urlSession: session, logger: nil, retryConfiguration: retryConfiguration, userAgent: "aaa")
         NetworkSession.shared.userAgent = "sssssss"
 
-        let joder = URLRequest("https://jsonplaceholder.typicode.com/todos/1", method: .get)
-
         var jar = URLRequest("http://ssss.com/getrequest1", method: .get, bearerToken: "mytoken")
         jar?.setBearerToken("ddddd")
 
@@ -30,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let jar2 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_id": "ios", "client_secret": "secret"], encoding: .url)
 
-        guard let request = joder else {
+        let requestOptional = URLRequest("https://jsonplaceholder.typicode.com/todos/1", method: .get)
+        guard let request = requestOptional else {
             return true
         }
         NetworkSession.shared.dataTask(request) { (response) in
