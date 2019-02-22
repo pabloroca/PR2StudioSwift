@@ -83,6 +83,7 @@ public final class NetworkSession {
                         guard let maximumretryDelay = self.retryConfiguration?.maximumretryDelay else {
                             return completionHandler(responseObject)
                         }
+                        NetworkSession.shared.retryConfiguration?.retryDelay = newretryDelay
                         if newretryDelay > maximumretryDelay {
                             completionHandler(responseObject)
                         } else {
