@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkSession.shared.userAgent = "sssssss"
 
         var jar = URLRequest("http://ssss.com/getrequest1", method: .get, bearerToken: "mytoken")
-        jar?.setBearerToken("ddddd")
+        jar?.setBearerToken("ddddd") 
 
         let jar1 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_id": "ios", "client_secret": "secret"], encoding: .json, headers: ["Asagent": "myPC"], bearerToken: "mytoken2")
 
