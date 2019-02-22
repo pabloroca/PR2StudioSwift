@@ -10,11 +10,15 @@ import Foundation
 
 /// Parse data to a Codable Tyoe
 
+private enum ParseToCodableTypeError: Error {
+    case somethingWentWrong
+}
+
 public final class ParseToCodableType {
 
     // MARK: - Methods
 
-    public static func asynchronous<TypeTo: Decodable>(toType: TypeTo.Type, key: String, bundle: Bundle? = nil, completion: @escaping (Result<TypeTo>) -> Void) {
+    public static func asynchronous<TypeTo: Decodable>(toType: TypeTo.Type, key: String, bundle: Bundle? = nil, completion: @escaping (Result<TypeTo, AnyError>) -> Void) {
         if let inputString = ProcessInfo.processInfo.environment[key] ?? Stubs.sharedInstance.resultForMethod[key] {
             ParseToCodableType.fromJSONStringAsync(inputString, toType: toType) { result in
                 DispatchQueue.main.async {
@@ -30,7 +34,7 @@ public final class ParseToCodableType {
         }
     }
 
-    public static func synchronous<TypeTo: Decodable>(toType: TypeTo.Type, key: String, bundle: Bundle? = nil) -> Result<TypeTo> {
+    public static func synchronous<TypeTo: Decodable>(toType: TypeTo.Type, key: String, bundle: Bundle? = nil) -> Result<TypeTo, AnyError> {
         if let inputString = ProcessInfo.processInfo.environment[key] ?? Stubs.sharedInstance.resultForMethod[key] {
             return ParseToCodableType.fromJSONString(inputString, toType: toType)
         } else {
@@ -40,22 +44,22 @@ public final class ParseToCodableType {
 
     // MARK: - Private Methods
 
-    private static func fromDictionary<TypeTo: Decodable>(_ dictionary: [String: Any], toType: TypeTo.Type) -> Result<TypeTo> {
-        // NOTE: we could specialize more the error if TPAError could be DeCodable
-        if (dictionary["TPAError"] as? [String: Any]) != nil {
-            return .failure(NSError(domain: "", code: -1, userInfo: nil))
+    private static func fromDictionary<TypeTo: Decodable>(_ dictionary: [String: Any], toType: TypeTo.Type) -> Result<TypeTo, AnyError> {
+        // NOTE: we could specialize more the error if PR2Error could be DeCodable
+        if (dictionary["PR2Error"] as? [String: Any]) != nil {
+            return .failure(AnyError(ParseToCodableTypeError.somethingWentWrong))
         } else {
             guard
                 let theJSONData = try? JSONSerialization.data(withJSONObject: dictionary, options: []),
                 let typeParsed = try? JSONDecoder().decode(toType.self, from: theJSONData)
                 else {
-                    return .failure(NSError(domain: "", code: -1, userInfo: nil))
+                    return .failure(AnyError(ParseToCodableTypeError.somethingWentWrong))
             }
             return .success(typeParsed)
         }
     }
 
-    private static func asynchronousEnd<TypeTo: Decodable>(dictionary: [String: Any], result: Result<TypeTo>, completion: @escaping (Result<TypeTo>) -> Void) {
+    private static func asynchronousEnd<TypeTo: Decodable>(dictionary: [String: Any], result: Result<TypeTo, AnyError>, completion: @escaping (Result<TypeTo, AnyError>) -> Void) {
         guard case .success(let typeParsed) = result else {
             completion(result)
             return
@@ -69,12 +73,12 @@ public final class ParseToCodableType {
         }
     }
 
-    private static func fromJSONFile<TypeTo: Decodable>(_ inputJSONFile: String, toType: TypeTo.Type, bundle: Bundle? = nil) -> Result<TypeTo> {
+    private static func fromJSONFile<TypeTo: Decodable>(_ inputJSONFile: String, toType: TypeTo.Type, bundle: Bundle? = nil) -> Result<TypeTo, AnyError> {
         let dictionary: [String: Any] = JSONHelper.readJSONFileAsDictionary(file: inputJSONFile, bundle: bundle)
         return ParseToCodableType.fromDictionary(dictionary, toType: toType.self)
     }
 
-    private static func fromJSONFileAsync<TypeTo: Decodable>(_ inputJSONFile: String, toType: TypeTo.Type, bundle: Bundle? = nil, completion: @escaping (Result<TypeTo>) -> Void) {
+    private static func fromJSONFileAsync<TypeTo: Decodable>(_ inputJSONFile: String, toType: TypeTo.Type, bundle: Bundle? = nil, completion: @escaping (Result<TypeTo, AnyError>) -> Void) {
         let dictionary: [String: Any] = JSONHelper.readJSONFileAsDictionary(file: inputJSONFile, bundle: bundle)
         let result = ParseToCodableType.fromJSONFile(inputJSONFile, toType: toType.self, bundle: bundle)
         ParseToCodableType.asynchronousEnd(dictionary: dictionary, result: result) { result in
@@ -82,12 +86,12 @@ public final class ParseToCodableType {
         }
     }
 
-    private static func fromJSONString<TypeTo: Decodable>(_ inputString: String, toType: TypeTo.Type) -> Result<TypeTo> {
+    private static func fromJSONString<TypeTo: Decodable>(_ inputString: String, toType: TypeTo.Type) -> Result<TypeTo, AnyError> {
         let dictionary: [String: Any] = JSONHelper.convertJSONStringToDictionary(from: inputString)
         return ParseToCodableType.fromDictionary(dictionary, toType: toType.self)
     }
 
-    private static func fromJSONStringAsync<TypeTo: Decodable>(_ inputString: String, toType: TypeTo.Type, completion: @escaping (Result<TypeTo>) -> Void) {
+    private static func fromJSONStringAsync<TypeTo: Decodable>(_ inputString: String, toType: TypeTo.Type, completion: @escaping (Result<TypeTo, AnyError>) -> Void) {
         let dictionary: [String: Any] = JSONHelper.convertJSONStringToDictionary(from: inputString)
         let result = ParseToCodableType.fromJSONString(inputString, toType: toType.self)
         ParseToCodableType.asynchronousEnd(dictionary: dictionary, result: result) { result in
