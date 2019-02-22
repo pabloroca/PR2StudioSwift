@@ -102,6 +102,7 @@ public final class NetworkSession {
             maximumretryDelay = request.retryConfiguration?.maximumretryDelay ?? 0
         case .session:
             maximumretryDelay = self.retryConfiguration?.maximumretryDelay ?? 0
+            newRequest.retryConfiguration?.retryDelay = NetworkSession.shared.retryConfiguration?.retryDelay ?? 0
         }
 
         newRequest.retryConfiguration?.retryDelay = newretryDelay
