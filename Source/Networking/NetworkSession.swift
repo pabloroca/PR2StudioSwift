@@ -71,6 +71,7 @@ public final class NetworkSession {
                         httpResponse?.statusCode == NSURLErrorCannotFindHost ||
                         httpResponse?.statusCode == NSURLErrorCannotConnectToHost) {
                     // reachability
+                    self.handleReachability()
                 } else {
                     // retrier
                     var retryDelayCalculated: Double = 0
@@ -90,6 +91,9 @@ public final class NetworkSession {
             }
             }.resume()
 
+    }
+
+    private func handleReachability() {
     }
 
     private func retryWithDelay(_ retryDelay: Double, retryMode: RetryMode, request: URLRequest, responseObject: Response, completionHandler: @escaping (_ response: Response) -> Void) {
