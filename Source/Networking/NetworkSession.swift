@@ -64,14 +64,16 @@ public final class NetworkSession {
                 // to fail
                 completionHandler(responseObject)
             } else {
-                // posible not having internet, we wait for reachability
+                // reachability
                 if error != nil &&
                     (httpResponse?.statusCode == NSURLErrorNotConnectedToInternet ||
                         httpResponse?.statusCode == NSURLErrorTimedOut ||
                         httpResponse?.statusCode == NSURLErrorCannotFindHost ||
                         httpResponse?.statusCode == NSURLErrorCannotConnectToHost) {
-                    // reachability
-                    self.handleReachability()
+                    // for now disabled
+                    completionHandler(responseObject)
+                    // when it needs to be enabled remove previous line and uncomment next line
+                    //self.handleReachability()
                 } else {
                     // retrier
                     self.retryWithDelay(retryDelaySession: self.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, responseObject: responseObject, completionHandler: { (response) in
