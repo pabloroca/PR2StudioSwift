@@ -74,16 +74,7 @@ public final class NetworkSession {
                     self.handleReachability()
                 } else {
                     // retrier
-                    var retryDelayCalculated: Double = 0
-                    var retryMode: RetryMode = .session
-
-                    if let retryDelayRequest = request.retryConfiguration?.retryDelay, retryDelayRequest > 0 {
-                        retryDelayCalculated = retryDelayRequest
-                        retryMode = .request
-                    } else if let retryDelay = self.retryConfiguration?.retryDelay, retryDelay > 0 {
-                        retryDelayCalculated = retryDelay
-                    }
-                    self.retryWithDelay(retryDelayCalculated, retryMode: retryMode, request: requestVar, responseObject: responseObject, completionHandler: { (response) in
+                    self.retryWithDelay(retryDelaySession: self.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, responseObject: responseObject, completionHandler: { (response) in
                         let responseObject = Response(data: response.data, response: response.response, error: response.error)
                         completionHandler(responseObject)
                     })
@@ -96,32 +87,47 @@ public final class NetworkSession {
     private func handleReachability() {
     }
 
-    private func retryWithDelay(_ retryDelay: Double, retryMode: RetryMode, request: URLRequest, responseObject: Response, completionHandler: @escaping (_ response: Response) -> Void) {
-        var maximumretryDelay: Double = 0
+    private func retryWithDelay(retryDelaySession: Double?, retryDelayRequest: Double?, request: URLRequest, responseObject: Response, completionHandler: @escaping (_ response: Response) -> Void) {
         var newRequest = request
-        let newretryDelay = retryDelay + 1
+        var retryDelayCalculated: Double = 0
+        var maximumretryDelay: Double = 0
+        var hasDelay: Bool = false
 
-        switch retryMode {
-        case .request:
+        if let retryDelayRequest = request.retryConfiguration?.retryDelay, retryDelayRequest > 0 {
+            // delay by request
+            hasDelay = true
+            retryDelayCalculated = retryDelayRequest
             maximumretryDelay = request.retryConfiguration?.maximumretryDelay ?? 0
-        case .session:
+        } else if let retryDelay = self.retryConfiguration?.retryDelay, retryDelay > 0 {
+            // delay by session
+            hasDelay = true
+            retryDelayCalculated = retryDelay
             maximumretryDelay = self.retryConfiguration?.maximumretryDelay ?? 0
             newRequest.retryConfiguration?.retryDelay = NetworkSession.shared.retryConfiguration?.retryDelay ?? 0
+        } else {
+            // no delay
+            completionHandler(responseObject)
+            return
         }
 
-        newRequest.retryConfiguration?.retryDelay = newretryDelay
+        if hasDelay {
+            let newretryDelay = retryDelayCalculated + 1
 
-        if newretryDelay > maximumretryDelay {
-            completionHandler(responseObject)
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(Int64(newretryDelay))) {
-                self.dataTask(newRequest, completionHandler: { (response) in
-                    let httpResponse = response.response
-                    let responseObject = Response(data: response.data, response: httpResponse, error: response.error)
-                    completionHandler(responseObject)
-                })
+            newRequest.retryConfiguration?.retryDelay = newretryDelay
+
+            if newretryDelay > maximumretryDelay {
+                completionHandler(responseObject)
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(Int64(newretryDelay))) {
+                    self.dataTask(newRequest, completionHandler: { (response) in
+                        let httpResponse = response.response
+                        let responseObject = Response(data: response.data, response: httpResponse, error: response.error)
+                        completionHandler(responseObject)
+                    })
+                }
             }
         }
+
     }
 
     /// shouldCancelRequestbyError: if the request error non temporary then we fail and cancel any further request
