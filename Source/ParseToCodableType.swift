@@ -44,7 +44,7 @@ public final class ParseToCodableType {
 
     // MARK: - Private Methods
 
-    private static func fromDictionary<TypeTo: Decodable>(_ dictionary: [String: Any], toType: TypeTo.Type) -> Result<TypeTo, AnyError> {
+    public static func fromDictionary<TypeTo: Decodable>(_ dictionary: [String: Any], toType: TypeTo.Type) -> Result<TypeTo, AnyError> {
         // NOTE: we could specialize more the error if PR2Error could be DeCodable
         if (dictionary["PR2Error"] as? [String: Any]) != nil {
             return .failure(AnyError(ParseToCodableTypeError.somethingWentWrong))

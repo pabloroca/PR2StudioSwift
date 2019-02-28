@@ -9,6 +9,30 @@
 import UIKit
 import PR2StudioSwift
 
+struct User: Decodable {
+    let userId: Int
+    let id: Int
+    let title: String
+    let completed: Bool
+}
+
+struct Joder2: Decodable {
+}
+
+public struct Customer2: Decodable {
+    let id: String
+    let email: String
+
+    enum CustomerKeys: String, CodingKey {
+        case id, email, metadata
+    }
+    public init (from decoder: Decoder) throws {
+        let container =  try decoder.container (keyedBy: CustomerKeys.self)
+        id = try container.decode (String.self, forKey: .id)
+        email = try container.decode (String.self, forKey: .email)
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -32,9 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let request = requestOptional else {
             return true
         }
-        NetworkSession.shared.dataTask(request) { (response) in
-            print("aqui")
-            print(response)
+
+        NetworkSession.shared.dataTask(request, toType: User.self) { (result) in
+            switch result {
+            case .success(let value):
+                print(value)
+            case .failure(let error):
+                print(error)
+            }
         }
 
         debugPrint(jar!)

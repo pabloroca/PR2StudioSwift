@@ -19,6 +19,7 @@
 		5F2A8C7621D6341200E32006 /* StubHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A8C7521D6341200E32006 /* StubHelpers.swift */; };
 		5F43423D21D666C10021A346 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43423C21D666C10021A346 /* Result.swift */; };
 		5F47F2BC208DDA5D00E4605E /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47F2BB208DDA5D00E4605E /* UICollectionView+Extensions.swift */; };
+		5F79A9852224076900BE2CA9 /* NetworkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F79A9842224076900BE2CA9 /* NetworkParser.swift */; };
 		5FB0ED6321D6321800BDB7A5 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0ED6021D6321800BDB7A5 /* JSONHelper.swift */; };
 		5FB0ED6421D6321800BDB7A5 /* BoxForBind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0ED6121D6321800BDB7A5 /* BoxForBind.swift */; };
 		5FB0ED6521D6321800BDB7A5 /* ParseToCodableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0ED6221D6321800BDB7A5 /* ParseToCodableType.swift */; };
@@ -79,6 +80,7 @@
 		5F2A8C7521D6341200E32006 /* StubHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubHelpers.swift; sourceTree = "<group>"; };
 		5F43423C21D666C10021A346 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5F47F2BB208DDA5D00E4605E /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		5F79A9842224076900BE2CA9 /* NetworkParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkParser.swift; sourceTree = "<group>"; };
 		5FB0ED6021D6321800BDB7A5 /* JSONHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		5FB0ED6121D6321800BDB7A5 /* BoxForBind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxForBind.swift; sourceTree = "<group>"; };
 		5FB0ED6221D6321800BDB7A5 /* ParseToCodableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseToCodableType.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				5FE5C628221C435500E35BCF /* HTTPMethod.swift */,
 				5FE5C62A221C435500E35BCF /* NetworkingError.swift */,
 				5FE5C629221C435500E35BCF /* NetworkLogger.swift */,
+				5F79A9842224076900BE2CA9 /* NetworkParser.swift */,
 				5FE5C62B221C435500E35BCF /* NetworkSession.swift */,
 				5FE5C627221C435500E35BCF /* Request.swift */,
 				5FE5C626221C435500E35BCF /* Response.swift */,
@@ -491,6 +494,7 @@
 				6D11C1FF204B54B10087088C /* LayoutExtensions.swift in Sources */,
 				6D453F5C20B0285D005A3F98 /* String+Extensions.swift in Sources */,
 				6DA6FBE220C44FC9006AD2A9 /* PR2ViewWaiting.swift in Sources */,
+				5F79A9852224076900BE2CA9 /* NetworkParser.swift in Sources */,
 				6D453F5A20B02818005A3F98 /* UIButton+Extensions.swift in Sources */,
 				5F1A68A4221EEAB700D86D42 /* RetryConfiguration.swift in Sources */,
 				6D11C1FE204B54B10087088C /* PR2Common.swift in Sources */,

@@ -8,6 +8,11 @@
 
 import Foundation
 
+public enum NetworkParserType {
+    case json
+    case data
+}
+
 public final class NetworkSession {
     public static let shared = NetworkSession()
 
@@ -29,9 +34,11 @@ public final class NetworkSession {
     }
 
     // MARK: - request
-    public func dataTask(
+    public func dataTask<ToType: Decodable >(
         _ request: URLRequest,
-        completionHandler: @escaping (_ response: Response) -> Void) {
+        parserType: NetworkParserType = .json,
+        toType: ToType.Type,
+        completionHandler: @escaping (_ result: Result<Any, AnyError>) -> Void) {
         var requestVar = request
         if let defaultHeaders = defaultHeaders {
             for header in defaultHeaders where request.value(forHTTPHeaderField: header.key) == nil {
@@ -53,16 +60,16 @@ public final class NetworkSession {
             if error == nil && (httpResponse?.statusCode == 200 ||
                 httpResponse?.statusCode == 210) {
                 // to parse
-                completionHandler(responseObject)
+                completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
             } else if httpResponse?.statusCode == 401 ||
                 httpResponse?.statusCode == 403 ||
                 httpResponse?.statusCode == 410 ||
                 httpResponse?.statusCode == 429 {
                 // to fail
-                completionHandler(responseObject)
+                completionHandler(.failure(AnyError(NetworkingError.dataTaskError(underlyingError: .responseFailed, statuscode: httpResponse?.statusCode ?? 0))))
             } else if error != nil && self.shouldCancelRequestbyError(error!) {
                 // to fail
-                completionHandler(responseObject)
+                completionHandler(.failure(AnyError(NetworkingError.dataTaskError(underlyingError: .responseFailed, statuscode: httpResponse?.statusCode ?? 0))))
             } else {
                 // reachability
                 if error != nil &&
@@ -71,14 +78,13 @@ public final class NetworkSession {
                         httpResponse?.statusCode == NSURLErrorCannotFindHost ||
                         httpResponse?.statusCode == NSURLErrorCannotConnectToHost) {
                     // for now disabled
-                    completionHandler(responseObject)
+                    completionHandler(.failure(AnyError(NetworkingError.dataTaskError(underlyingError: .responseFailed, statuscode: httpResponse?.statusCode ?? 0))))
                     // when it needs to be enabled remove previous line and uncomment next line
                     //self.handleReachability()
                 } else {
                     // retrier
-                    self.retryWithDelay(retryDelaySession: self.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, responseObject: responseObject, completionHandler: { (response) in
-                        let responseObject = Response(data: response.data, response: response.response, error: response.error)
-                        completionHandler(responseObject)
+                    self.retryWithDelay(retryDelaySession: self.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, responseObject: responseObject, completionHandler: { (response) in
+                        completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
                     })
                 }
             }
@@ -89,7 +95,7 @@ public final class NetworkSession {
     private func handleReachability() {
     }
 
-    private func retryWithDelay(retryDelaySession: Double?, retryDelayRequest: Double?, request: URLRequest, responseObject: Response, completionHandler: @escaping (_ response: Response) -> Void) {
+    private func retryWithDelay<ToType: Decodable>(retryDelaySession: Double?, retryDelayRequest: Double?, request: URLRequest, parserType: NetworkParserType, toType: ToType.Type, responseObject: Response, completionHandler: @escaping (_ result: Result<Any, AnyError>) -> Void) {
         var newRequest = request
         var retryDelayCalculated: Double = 0
         var maximumretryDelay: Double = 0
@@ -108,7 +114,7 @@ public final class NetworkSession {
             newRequest.retryConfiguration?.retryDelay = NetworkSession.shared.retryConfiguration?.retryDelay ?? 0
         } else {
             // no delay
-            completionHandler(responseObject)
+            completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
             return
         }
 
@@ -118,13 +124,11 @@ public final class NetworkSession {
             newRequest.retryConfiguration?.retryDelay = newretryDelay
 
             if newretryDelay > maximumretryDelay {
-                completionHandler(responseObject)
+                completionHandler(.failure(AnyError(NetworkingError.dataTaskError(underlyingError: .tooManyAttempts, statuscode: 0))))
             } else {
                 DispatchQueue.main.asyncAfter(deadline: .now() + Double(Int64(newretryDelay))) {
-                    self.dataTask(newRequest, completionHandler: { (response) in
-                        let httpResponse = response.response
-                        let responseObject = Response(data: response.data, response: httpResponse, error: response.error)
-                        completionHandler(responseObject)
+                    self.dataTask(newRequest, parserType: parserType, toType: toType, completionHandler: { (response) in
+                        completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
                     })
                 }
             }
