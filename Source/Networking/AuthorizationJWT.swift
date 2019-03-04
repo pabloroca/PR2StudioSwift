@@ -26,7 +26,7 @@ public final class AuthorizationJWT: Authorization {
             return
         }
 
-        NetworkSession.shared.dataTask(request, parserType: .data, toType: String.self) { (result) in
+        NetworkSession.shared.dataTask(request, parserType: .data, toType: String.self, authorization: nil) { (result) in
             if case let .success(value) = result {
                 guard let token = value as? String else {
                     completionHandler(.failure(AnyError(

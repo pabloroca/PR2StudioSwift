@@ -106,6 +106,11 @@ public extension URLRequest {
             } catch {
                 self.error = NetworkingError.buildRequestError(underlyingError: .encodingFailed)
             }
+        } else {
+            guard let bearerToken = bearerToken else {
+                return
+            }
+            setBearerToken(bearerToken)
         }
     }
 

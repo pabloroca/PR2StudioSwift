@@ -40,6 +40,7 @@ public final class NetworkSession {
         _ request: URLRequest,
         parserType: NetworkParserType = .json,
         toType: ToType.Type,
+        authorization: Authorization? = nil,
         completionHandler: @escaping (_ result: Result<Any, AnyError>) -> Void) {
         var requestVar = request
         if let defaultHeaders = defaultHeaders {
@@ -62,15 +63,10 @@ public final class NetworkSession {
                 httpResponse?.statusCode == 210) {
                 completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
             } else if httpResponse?.statusCode == 401 {
-                guard let authorization = strongSelf.authorization else {
-                    completionHandler(.failure(
-                        AnyError(NetworkingError.authorizationError(underlyingError: .noauthorizationdefined))))
-                    return
-                }
-                authorization.authorize(completionHandler: { (result) in
+                authorization?.authorize(completionHandler: { (result) in
                     switch result {
                     case .success:
-                        strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, responseObject: responseObject, completionHandler: { (response) in
+                        strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, authorization: authorization, responseObject: responseObject, completionHandler: { (response) in
                             completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
                         })
                     case .failure:
@@ -99,7 +95,7 @@ public final class NetworkSession {
                     //self.handleReachability()
                 } else {
                     // retrier
-                    strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, responseObject: responseObject, completionHandler: { (response) in
+                    strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, authorization: authorization, responseObject: responseObject, completionHandler: { (response) in
                         completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
                     })
                 }
@@ -111,7 +107,7 @@ public final class NetworkSession {
     private func handleReachability() {
     }
 
-    private func retryWithDelay<ToType: Decodable>(retryDelaySession: Double?, retryDelayRequest: Double?, request: URLRequest, parserType: NetworkParserType, toType: ToType.Type, responseObject: Response, completionHandler: @escaping (_ result: Result<Any, AnyError>) -> Void) {
+    private func retryWithDelay<ToType: Decodable>(retryDelaySession: Double?, retryDelayRequest: Double?, request: URLRequest, parserType: NetworkParserType, toType: ToType.Type, authorization: Authorization?, responseObject: Response, completionHandler: @escaping (_ result: Result<Any, AnyError>) -> Void) {
         var newRequest = request
         var retryDelayCalculated: Double = 0
         var maximumretryDelay: Double = 0
@@ -143,7 +139,7 @@ public final class NetworkSession {
                 completionHandler(.failure(AnyError(NetworkingError.dataTaskError(underlyingError: .tooManyAttempts, statuscode: 0))))
             } else {
                 DispatchQueue.main.asyncAfter(deadline: .now() + Double(Int64(newretryDelay))) {
-                    self.dataTask(newRequest, parserType: parserType, toType: toType, completionHandler: { (response) in
+                    self.dataTask(newRequest, parserType: parserType, toType: toType, authorization: authorization, completionHandler: { (response) in
                         completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
                     })
                 }

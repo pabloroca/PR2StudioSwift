@@ -47,8 +47,8 @@ public class NetworkLogger {
                     print("\(header.key): \"\(header.value)\"")
                 }
             }
-            print("Request Body: ")
             if let httpBody = request.httpBody {
+                print("Request Body: ")
                 let bodyString = String(decoding: httpBody, as: UTF8.self)
                 print("\(bodyString)")
             }
@@ -93,9 +93,21 @@ public class NetworkLogger {
                 print("\(header.key): \"\(header.value)\"")
             }
             print("Response Body: ")
-            let parser = NetworkParser(parserType: parserType, toType: toType, data: data)
-            if case let .success(value) = parser.result {
-                print(value)
+            guard let data = data else {
+                return
+            }
+
+            do {
+                guard let jsonDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                    return
+                }
+                print(String(data: try! JSONSerialization.data(withJSONObject: jsonDictionary, options: .prettyPrinted), encoding: .utf8 )!)
+            } catch {
+                let parser = NetworkParser(parserType: parserType, toType: toType, data: data)
+                if case let .success(value) = parser.result {
+                    print(value)
+                }
+                return
             }
 
         case .networkLoggerLogLevelInfo:

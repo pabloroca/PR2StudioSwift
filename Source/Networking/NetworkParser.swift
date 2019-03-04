@@ -35,10 +35,11 @@ public struct NetworkParser<ToType: Decodable> {
             }
         case .data:
             let text = String(decoding: data, as: UTF8.self)
+            let textremovingescaping = text.replacingOccurrences(of: "\"", with: "")
             if String(describing: toType.self) == "String" {
-                self.result = .success(text)
+                self.result = .success(textremovingescaping)
             } else {
-                self.result = .success(Int(text) ?? 0)
+                self.result = .success(Int(textremovingescaping) ?? 0)
             }
         }
 
