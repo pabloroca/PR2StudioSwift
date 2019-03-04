@@ -22,12 +22,14 @@ public final class NetworkSession {
 
     private var networkLogger: NetworkLogger?
     private var retryConfiguration: RetryConfiguration?
+    private var authorization: Authorization?
 
     private init() {
     }
 
-    public func setup(urlSession: URLSession, logger: NetworkLogger?, retryConfiguration: RetryConfiguration? = nil, userAgent: String = "") {
+    public func setup(urlSession: URLSession, authorization: Authorization? = nil, logger: NetworkLogger?, retryConfiguration: RetryConfiguration? = nil, userAgent: String = "") {
         self.urlSession = urlSession
+        self.authorization = authorization
         self.networkLogger = logger
         self.retryConfiguration = retryConfiguration
         self.userAgent = userAgent
@@ -45,29 +47,43 @@ public final class NetworkSession {
                 requestVar.setValue(header.value as? String, forHTTPHeaderField: header.key)
             }
         }
-        networkLogger?.willStartRequest()
+        networkLogger?.willStartRequest(requestVar)
 
         urlSession.dataTask(with: requestVar) { [weak self] (data, response, error) in
-            guard let self = self else {
+            guard let strongSelf = self else {
                 return
             }
             let httpResponse = response as? HTTPURLResponse
-
             let responseObject = Response(data: data, response: httpResponse, error: error as? NetworkingError)
 
-            self.networkLogger?.didFinishRequest()
+            strongSelf.networkLogger?.didFinishRequest(requestVar, response: httpResponse, parserType: parserType, toType: toType, data: responseObject.data)
 
             if error == nil && (httpResponse?.statusCode == 200 ||
                 httpResponse?.statusCode == 210) {
-                // to parse
                 completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
-            } else if httpResponse?.statusCode == 401 ||
-                httpResponse?.statusCode == 403 ||
+            } else if httpResponse?.statusCode == 401 {
+                guard let authorization = strongSelf.authorization else {
+                    completionHandler(.failure(
+                        AnyError(NetworkingError.authorizationError(underlyingError: .noauthorizationdefined))))
+                    return
+                }
+                authorization.authorize(completionHandler: { (result) in
+                    switch result {
+                    case .success:
+                        strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, responseObject: responseObject, completionHandler: { (response) in
+                            completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
+                        })
+                    case .failure:
+                        completionHandler(.failure(AnyError(
+                            NetworkingError.authorizationError(underlyingError: .authorizationFailed))))
+                    }
+                })
+            } else if httpResponse?.statusCode == 403 ||
                 httpResponse?.statusCode == 410 ||
                 httpResponse?.statusCode == 429 {
                 // to fail
                 completionHandler(.failure(AnyError(NetworkingError.dataTaskError(underlyingError: .responseFailed, statuscode: httpResponse?.statusCode ?? 0))))
-            } else if error != nil && self.shouldCancelRequestbyError(error!) {
+            } else if error != nil && strongSelf.shouldCancelRequestbyError(error!) {
                 // to fail
                 completionHandler(.failure(AnyError(NetworkingError.dataTaskError(underlyingError: .responseFailed, statuscode: httpResponse?.statusCode ?? 0))))
             } else {
@@ -83,7 +99,7 @@ public final class NetworkSession {
                     //self.handleReachability()
                 } else {
                     // retrier
-                    self.retryWithDelay(retryDelaySession: self.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, responseObject: responseObject, completionHandler: { (response) in
+                    strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, responseObject: responseObject, completionHandler: { (response) in
                         completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
                     })
                 }

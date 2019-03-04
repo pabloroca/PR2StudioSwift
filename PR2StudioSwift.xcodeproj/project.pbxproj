@@ -16,6 +16,8 @@
 		5F1059EC220D67E4008648C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1059EA220D67E4008648C0 /* LaunchScreen.storyboard */; };
 		5F1059F1220D9833008648C0 /* PR2StudioSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D668A9B204B1280003B1C35 /* PR2StudioSwift.framework */; };
 		5F1A68A4221EEAB700D86D42 /* RetryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A68A3221EEAB700D86D42 /* RetryConfiguration.swift */; };
+		5F28116422282FC8001A128B /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28116322282FC8001A128B /* Authorization.swift */; };
+		5F28116622283031001A128B /* AuthorizationJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28116522283031001A128B /* AuthorizationJWT.swift */; };
 		5F2A8C7621D6341200E32006 /* StubHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A8C7521D6341200E32006 /* StubHelpers.swift */; };
 		5F43423D21D666C10021A346 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43423C21D666C10021A346 /* Result.swift */; };
 		5F47F2BC208DDA5D00E4605E /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47F2BB208DDA5D00E4605E /* UICollectionView+Extensions.swift */; };
@@ -77,6 +79,8 @@
 		5F1059EB220D67E4008648C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F1059ED220D67E4008648C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F1A68A3221EEAB700D86D42 /* RetryConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryConfiguration.swift; sourceTree = "<group>"; };
+		5F28116322282FC8001A128B /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		5F28116522283031001A128B /* AuthorizationJWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationJWT.swift; sourceTree = "<group>"; };
 		5F2A8C7521D6341200E32006 /* StubHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubHelpers.swift; sourceTree = "<group>"; };
 		5F43423C21D666C10021A346 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5F47F2BB208DDA5D00E4605E /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 		5F02E1DE220C3672003D7638 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				5F28116322282FC8001A128B /* Authorization.swift */,
+				5F28116522283031001A128B /* AuthorizationJWT.swift */,
 				5FE5C628221C435500E35BCF /* HTTPMethod.swift */,
 				5FE5C62A221C435500E35BCF /* NetworkingError.swift */,
 				5FE5C629221C435500E35BCF /* NetworkLogger.swift */,
@@ -492,10 +498,12 @@
 				5FE5C62C221C435500E35BCF /* Response.swift in Sources */,
 				5F02E1C7220C101C003D7638 /* KeyChainService.swift in Sources */,
 				6D11C1FF204B54B10087088C /* LayoutExtensions.swift in Sources */,
+				5F28116622283031001A128B /* AuthorizationJWT.swift in Sources */,
 				6D453F5C20B0285D005A3F98 /* String+Extensions.swift in Sources */,
 				6DA6FBE220C44FC9006AD2A9 /* PR2ViewWaiting.swift in Sources */,
 				5F79A9852224076900BE2CA9 /* NetworkParser.swift in Sources */,
 				6D453F5A20B02818005A3F98 /* UIButton+Extensions.swift in Sources */,
+				5F28116422282FC8001A128B /* Authorization.swift in Sources */,
 				5F1A68A4221EEAB700D86D42 /* RetryConfiguration.swift in Sources */,
 				6D11C1FE204B54B10087088C /* PR2Common.swift in Sources */,
 				6D11C207204B54B10087088C /* UITableView+Extensions.swift in Sources */,

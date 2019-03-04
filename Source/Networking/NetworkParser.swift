@@ -34,8 +34,12 @@ public struct NetworkParser<ToType: Decodable> {
                 self.result = .failure(AnyError(NetworkingError.parsingFailure(underlyingError: .jsonparsingFailed)))
             }
         case .data:
-            print("data")
-            self.result = .success("")
+            let text = String(decoding: data, as: UTF8.self)
+            if String(describing: toType.self) == "String" {
+                self.result = .success(text)
+            } else {
+                self.result = .success(Int(text) ?? 0)
+            }
         }
 
     }

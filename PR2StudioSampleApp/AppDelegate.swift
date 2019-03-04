@@ -40,35 +40,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let retryConfiguration = RetryConfiguration(retryDelay: 0, maximumretryDelay: 15)
-        let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
-        NetworkSession.shared.setup(urlSession: session, logger: nil, retryConfiguration: retryConfiguration, userAgent: "aaa")
-        NetworkSession.shared.userAgent = "sssssss"
+//        let retryConfiguration = RetryConfiguration(retryDelay: 0, maximumretryDelay: 15)
+//        let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
+//        NetworkSession.shared.setup(urlSession: session, logger: nil, retryConfiguration: retryConfiguration, userAgent: "aaa")
+//        NetworkSession.shared.userAgent = "sssssss"
+//
+//        var jar = URLRequest("http://ssss.com/getrequest1", method: .get, bearerToken: "mytoken")
+//        jar?.setBearerToken("ddddd")
+//
+//        let jar1 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_id": "ios", "client_secret": "secret"], encoding: .json, headers: ["Asagent": "myPC"], bearerToken: "mytoken2")
+//
+//        let jar2 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_id": "ios", "client_secret": "secret"], encoding: .url)
+//
+//        let requestOptional = URLRequest("https://jsonplaceholder.typicode.com/todos/1", method: .get)
+//        guard let request = requestOptional else {
+//            return true
+//        }
+//
+//        NetworkSession.shared.dataTask(request, toType: User.self) { (result) in
+//            switch result {
+//            case .success(let value):
+//                print(value)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
 
-        var jar = URLRequest("http://ssss.com/getrequest1", method: .get, bearerToken: "mytoken")
-        jar?.setBearerToken("ddddd")
+        // with authorization
+        let authorization: Authorization = AuthorizationJWT(authEndPoint: "https://apiccse.pr2studio.com/token", parameters: ["client_id": "ios", "client_secret": "&@$!Jodertio1_IOS!$@&"])
+        let sessionA = URLSession(configuration: URLSessionConfiguration.ephemeral)
+        let logger = NetworkLogger(logLevel: .networkLoggerLogLevelDebug)
+        NetworkSession.shared.setup(urlSession: sessionA, authorization: authorization, logger: logger, userAgent: "auth user agent")
 
-        let jar1 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_id": "ios", "client_secret": "secret"], encoding: .json, headers: ["Asagent": "myPC"], bearerToken: "mytoken2")
-
-        let jar2 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_id": "ios", "client_secret": "secret"], encoding: .url)
-
-        let requestOptional = URLRequest("https://jsonplaceholder.typicode.com/todos/1", method: .get)
-        guard let request = requestOptional else {
-            return true
-        }
-
-        NetworkSession.shared.dataTask(request, toType: User.self) { (result) in
+        // get token and store it in keychain
+        authorization.authorize { (result) in
             switch result {
-            case .success(let value):
-                print(value)
+            case .success:
+                print("success")
             case .failure(let error):
-                print(error)
+                print("feilure \(error)")
             }
         }
 
-        debugPrint(jar!)
-        debugPrint(jar1!)
-        debugPrint(jar2!)
+//        debugPrint(jar!)
+//        debugPrint(jar1!)
+//        debugPrint(jar2!)
 
         return true
     }
