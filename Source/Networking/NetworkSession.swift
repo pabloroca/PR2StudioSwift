@@ -22,14 +22,12 @@ public final class NetworkSession {
 
     private var networkLogger: NetworkLogger?
     private var retryConfiguration: RetryConfiguration?
-    private var authorization: Authorization?
 
     private init() {
     }
 
     public func setup(urlSession: URLSession, authorization: Authorization? = nil, logger: NetworkLogger?, retryConfiguration: RetryConfiguration? = nil, userAgent: String = "") {
         self.urlSession = urlSession
-        self.authorization = authorization
         self.networkLogger = logger
         self.retryConfiguration = retryConfiguration
         self.userAgent = userAgent
