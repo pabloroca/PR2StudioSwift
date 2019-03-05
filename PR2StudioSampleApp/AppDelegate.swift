@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let authorization: Authorization = AuthorizationJWT(authEndPoint: "https://apiccse.pr2studio.com/token", parameters: ["client_id": "ios", "client_secret": "&@$!Jodertio1_IOS!$@&"])
         let sessionA = URLSession(configuration: URLSessionConfiguration.ephemeral)
         let logger = NetworkLogger(logLevel: .networkLoggerLogLevelDebug)
-        NetworkSession.shared.setup(urlSession: sessionA, authorization: authorization, logger: logger, userAgent: "auth user agent")
+        NetworkSession.shared.setup(urlSession: sessionA, logger: logger, userAgent: "auth user agent")
 
         // get token and store it in keychain
         authorization.authorize { (result) in

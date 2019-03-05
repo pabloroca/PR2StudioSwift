@@ -26,7 +26,7 @@ public final class NetworkSession {
     private init() {
     }
 
-    public func setup(urlSession: URLSession, authorization: Authorization? = nil, logger: NetworkLogger?, retryConfiguration: RetryConfiguration? = nil, userAgent: String = "") {
+    public func setup(urlSession: URLSession, logger: NetworkLogger?, retryConfiguration: RetryConfiguration? = nil, userAgent: String = "") {
         self.urlSession = urlSession
         self.networkLogger = logger
         self.retryConfiguration = retryConfiguration
