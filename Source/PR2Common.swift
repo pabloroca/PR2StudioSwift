@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 #if os(iOS)
-    import CoreTelephony
+import CoreTelephony
 #endif
 
 /**
@@ -36,7 +36,7 @@ open class PR2Common {
      */
     open func showNetworkActivityinStatusBar() {
         #if UIApplication
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         #endif
     }
     /**
@@ -44,24 +44,24 @@ open class PR2Common {
      */
     open func hideNetworkActivityinStatusBar() {
         #if UIApplication
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         #endif
     }
 
     #if os(iOS)
     open var topMostVC: UIViewController? {
         #if UIApplication
-            var presentedVC = UIApplication.shared.keyWindow?.rootViewController
-            while let pVC = presentedVC?.presentedViewController {
-                presentedVC = pVC
-            }
+        var presentedVC = UIApplication.shared.keyWindow?.rootViewController
+        while let pVC = presentedVC?.presentedViewController {
+            presentedVC = pVC
+        }
 
-            if presentedVC == nil {
-                print("Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
-            }
-            return presentedVC
+        if presentedVC == nil {
+            print("Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
+        }
+        return presentedVC
         #else
-            return nil
+        return nil
         #endif
     }
 
@@ -83,22 +83,22 @@ open class PR2Common {
 
     open func canDevicePlaceAPhoneCall() -> Bool {
         #if UIApplication
-            if UIApplication.shared.canOpenURL(NSURL(string: "tel://")! as URL) {
-                let netInfo = CTTelephonyNetworkInfo()
-                let carrier = netInfo.subscriberCellularProvider
-                let mnc = carrier?.mobileNetworkCode
-                if (mnc?.characters == nil || mnc! == "65535") {
-                    // Device cannot place a call at this time.  SIM might be removed.
-                    return false
-                } else {
-                    // Device can place a phone call
-                    return true
-                }
-            } else {
+        if UIApplication.shared.canOpenURL(NSURL(string: "tel://")! as URL) {
+            let netInfo = CTTelephonyNetworkInfo()
+            let carrier = netInfo.subscriberCellularProvider
+            let mnc = carrier?.mobileNetworkCode
+            if (mnc?.characters == nil || mnc! == "65535") {
+                // Device cannot place a call at this time.  SIM might be removed.
                 return false
+            } else {
+                // Device can place a phone call
+                return true
             }
-        #else
+        } else {
             return false
+        }
+        #else
+        return false
         #endif
     }
     #endif
@@ -190,4 +190,10 @@ open class PR2Common {
         }
     }
 
+    open func modelIdentifier() -> String {
+        if let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] { return simulatorModelIdentifier }
+        var sysinfo = utsname()
+        uname(&sysinfo) // ignore return value
+        return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
+    }
 }

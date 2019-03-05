@@ -17,8 +17,7 @@ public final class NetworkSession {
     public static let shared = NetworkSession()
 
     private var urlSession: URLSession = URLSession()
-    public var userAgent: String = ""
-    public var defaultHeaders: [String: Any]?
+    public var defaultHeaders: [String: Any]!
 
     private var networkLogger: NetworkLogger?
     private var retryConfiguration: RetryConfiguration?
@@ -26,11 +25,12 @@ public final class NetworkSession {
     private init() {
     }
 
-    public func setup(urlSession: URLSession, logger: NetworkLogger?, retryConfiguration: RetryConfiguration? = nil, userAgent: String = "") {
+    public func setup(urlSession: URLSession, logger: NetworkLogger?, retryConfiguration: RetryConfiguration? = nil) {
         self.urlSession = urlSession
         self.networkLogger = logger
         self.retryConfiguration = retryConfiguration
-        self.userAgent = userAgent
+        self.defaultHeaders = [:]
+        self.defaultHeaders["User-Agent"] = self.userAgent()
     }
 
     // MARK: - request
@@ -41,10 +41,8 @@ public final class NetworkSession {
         authorization: Authorization? = nil,
         completionHandler: @escaping (_ result: Result<Any, AnyError>) -> Void) {
         var requestVar = request
-        if let defaultHeaders = defaultHeaders {
-            for header in defaultHeaders where request.value(forHTTPHeaderField: header.key) == nil {
-                requestVar.setValue(header.value as? String, forHTTPHeaderField: header.key)
-            }
+        for header in defaultHeaders where request.value(forHTTPHeaderField: header.key) == nil {
+            requestVar.setValue(header.value as? String, forHTTPHeaderField: header.key)
         }
         networkLogger?.willStartRequest(requestVar)
 
@@ -186,6 +184,21 @@ public final class NetworkSession {
     }
 
     // MARK: - Other operations
+
+    private func userAgent() -> String {
+        var userAgent: String = "Unknown"
+        if let info = Bundle.main.infoDictionary {
+            let executable: AnyObject = info[kCFBundleExecutableKey as String] as AnyObject
+            let version: AnyObject = info[kCFBundleVersionKey as String] as AnyObject
+            let osmajor: AnyObject = ProcessInfo.processInfo.operatingSystemVersion.majorVersion as AnyObject
+            let osminor: AnyObject = ProcessInfo.processInfo.operatingSystemVersion.minorVersion as AnyObject
+            let model: AnyObject = PR2Common().modelIdentifier() as AnyObject
+
+            userAgent = NSMutableString(string: "\(executable):\(version)/IOS:\(osmajor).\(osminor)/\(model)") as String
+
+        }
+        return userAgent
+    }
 
     public func cancelAllTasks() {
         urlSession.getTasksWithCompletionHandler { (dataTasks, uploadTasks, downloadTasks) in

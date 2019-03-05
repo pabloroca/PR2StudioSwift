@@ -42,8 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //        let retryConfiguration = RetryConfiguration(retryDelay: 0, maximumretryDelay: 15)
         //        let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
-        //        NetworkSession.shared.setup(urlSession: session, logger: nil, retryConfiguration: retryConfiguration, userAgent: "aaa")
-        //        NetworkSession.shared.userAgent = "sssssss"
+        //        NetworkSession.shared.setup(urlSession: session, logger: nil, retryConfiguration: retryConfiguration)
         //
         //        var jar = URLRequest("http://ssss.com/getrequest1", method: .get, bearerToken: "mytoken")
         //        jar?.setBearerToken("ddddd")
@@ -70,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let authorization: Authorization = AuthorizationJWT(authEndPoint: "https://apiccse.pr2studio.com/token", parameters: ["client_id": "ios", "client_secret": "&@$!Jodertio1_IOS!$@&"])
         let sessionA = URLSession(configuration: URLSessionConfiguration.ephemeral)
         let logger = NetworkLogger(logLevel: .networkLoggerLogLevelDebug)
-        NetworkSession.shared.setup(urlSession: sessionA, logger: logger, userAgent: "auth user agent")
+        NetworkSession.shared.setup(urlSession: sessionA, logger: logger)
 
         // get token and store it in keychain
         authorization.authorize { (result) in
