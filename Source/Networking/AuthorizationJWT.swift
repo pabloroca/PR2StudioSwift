@@ -18,6 +18,10 @@ public final class AuthorizationJWT: Authorization {
         self.parameters = parameters
     }
 
+    public func loadCredentials() -> String {
+        return KeyChainService.load(withKey: "jwt") ?? ""
+    }
+
     public func authorize(completionHandler: @escaping (Result<Any, AnyError>) -> Void) {
         let requestOptional = URLRequest(authEndPoint, method: .post, parameters: parameters, encoding: .json)
         guard let request = requestOptional else {

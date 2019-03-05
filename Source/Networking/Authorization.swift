@@ -11,5 +11,6 @@ import Foundation
 public protocol Authorization: AnyObject {
     var authEndPoint: String { get }
     var parameters: [String: String] { get }
+    func loadCredentials() -> String
     func authorize(completionHandler: @escaping (_ result: Result<Any, AnyError>) -> Void)
 }

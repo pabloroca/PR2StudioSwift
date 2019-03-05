@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .success:
                 print("success")
 
-                let getVersionsOpt = URLRequest("https://apiccse.pr2studio.com/versions", method: .get, bearerToken: KeyChainService.load(withKey: "jwt"))
+                let getVersionsOpt = URLRequest("https://apiccse.pr2studio.com/versions", method: .get, bearerToken: authorization.loadCredentials())
                 if let getVersions = getVersionsOpt {
                     NetworkSession.shared.dataTask(getVersions, toType: Versions.self, authorization: authorization) { (result) in
                         switch result {
