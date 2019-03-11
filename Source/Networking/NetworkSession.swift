@@ -13,6 +13,12 @@ public enum NetworkParserType {
     case data
 }
 
+/// Slow Internet Notification
+public struct PR2NetworkingNotifications {
+    /// slow internet
+    public static let slowInternet = "com.pr2studio.notifications.SlowInternet"
+}
+
 public final class NetworkSession {
     public static let shared = NetworkSession()
 
@@ -21,6 +27,11 @@ public final class NetworkSession {
 
     private var networkLogger: NetworkLogger?
     private var retryConfiguration: RetryConfiguration?
+
+    /// seconds to trigger slow internet notification
+    private let slowInternetDelay: Double = 3.0
+    /// timer for slow internet
+    private var slowInternetTimer = Timer()
 
     private init() {
     }
@@ -40,6 +51,9 @@ public final class NetworkSession {
         toType: ToType.Type,
         authorization: Authorization? = nil,
         completionHandler: @escaping (_ result: Result<Any, AnyError>) -> Void) {
+
+        slowInternetTimer = Timer.scheduledTimer(timeInterval: slowInternetDelay, target: self, selector: #selector(slowInternetTimerReached), userInfo: nil, repeats: false)
+
         var requestVar = request
         for header in defaultHeaders where request.value(forHTTPHeaderField: header.key) == nil {
             requestVar.setValue(header.value as? String, forHTTPHeaderField: header.key)
@@ -50,6 +64,8 @@ public final class NetworkSession {
             guard let strongSelf = self else {
                 return
             }
+            strongSelf.slowInternetTimer.invalidate()
+
             let httpResponse = response as? HTTPURLResponse
             let responseObject = Response(data: data, response: httpResponse, error: error as? NetworkingError)
 
@@ -62,7 +78,7 @@ public final class NetworkSession {
                 authorization?.authorize(completionHandler: { (result) in
                     switch result {
                     case .success:
-                        strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, authorization: authorization, responseObject: responseObject, completionHandler: { (response) in
+                        strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: requestVar.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, authorization: authorization, responseObject: responseObject, completionHandler: { (response) in
                             completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
                         })
                     case .failure:
@@ -91,7 +107,7 @@ public final class NetworkSession {
                     //self.handleReachability()
                 } else {
                     // retrier
-                    strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: request.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, authorization: authorization, responseObject: responseObject, completionHandler: { (response) in
+                    strongSelf.retryWithDelay(retryDelaySession: strongSelf.retryConfiguration?.retryDelay, retryDelayRequest: requestVar.retryConfiguration?.retryDelay, request: requestVar, parserType: parserType, toType: toType, authorization: authorization, responseObject: responseObject, completionHandler: { (response) in
                         completionHandler(NetworkParser(parserType: parserType, toType: toType, data: responseObject.data).result)
                     })
                 }
@@ -181,6 +197,15 @@ public final class NetworkSession {
         } else {
             return false
         }
+    }
+
+    // MARK: - Timer (slow internet) method
+
+    /**
+     Slow internet reached
+     */
+    @objc dynamic func slowInternetTimerReached() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: PR2NetworkingNotifications.slowInternet), object: nil)
     }
 
     // MARK: - Other operations

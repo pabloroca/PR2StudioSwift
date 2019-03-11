@@ -16,9 +16,8 @@ public enum ParameterEncoding {
 public extension URLRequest {
 
     // MARK: - properties
-    private static var _networkingError = [String: NetworkingError?]()
-
     /// Error if any
+    private static var _networkingError = [String: NetworkingError?]()
     public var error: NetworkingError? {
         get {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
@@ -30,9 +29,8 @@ public extension URLRequest {
         }
     }
 
-    private static var _id = [String: String]()
-
     /// Request id
+    private static var _id = [String: String]()
     public var id: String {
         get {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
@@ -44,9 +42,8 @@ public extension URLRequest {
         }
     }
 
-    private static var _retryConfiguration = [String: RetryConfiguration?]()
-
     /// Request retryConfiguration
+    private static var _retryConfiguration = [String: RetryConfiguration?]()
     public var retryConfiguration: RetryConfiguration? {
         get {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))

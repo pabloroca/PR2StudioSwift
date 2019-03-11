@@ -47,9 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        var jar = URLRequest("http://ssss.com/getrequest1", method: .get, bearerToken: "mytoken")
         //        jar?.setBearerToken("ddddd")
         //
-        //        let jar1 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_id": "ios", "client_secret": "secret"], encoding: .json, headers: ["Asagent": "myPC"], bearerToken: "mytoken2")
+        //        let jar1 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_secret": "secret"], encoding: .json, headers: ["Asagent": "myPC"], bearerToken: "mytoken2")
         //
-        //        let jar2 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_id": "ios", "client_secret": "secret"], encoding: .url)
+        //        let jar2 = URLRequest("http://ssss.com/getrequest2", method: .post, parameters: ["client_secret": "secret"], encoding: .url)
         //
         //        let requestOptional = URLRequest("https://jsonplaceholder.typicode.com/todos/1", method: .get)
         //        guard let request = requestOptional else {
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        }
 
         // with authorization
-        let authorization: Authorization = AuthorizationJWT(authEndPoint: "https://apiccse.pr2studio.com/token", parameters: ["client_id": "ios", "client_secret": "&@$!Jodertio1_IOS!$@&"])
+        let authorization: Authorization = AuthorizationJWT(authEndPoint: "https://apiccse.pr2studio.com/token", parameters: ["client_secret": "&@$!Jodertio1_IOS!$@&"])
         let sessionA = URLSession(configuration: URLSessionConfiguration.ephemeral)
         let logger = NetworkLogger(logLevel: .networkLoggerLogLevelDebug)
         NetworkSession.shared.setup(urlSession: sessionA, logger: logger)
