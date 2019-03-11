@@ -48,15 +48,12 @@
 		6D11C20E204B56E70087088C /* PR2StudioSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11C20A204B54BA0087088C /* PR2StudioSwiftTests.swift */; };
 		6D11C214204B58EA0087088C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C213204B58EA0087088C /* LICENSE */; };
 		6D11C216204B58FC0087088C /* PR2StudioSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C215204B58FC0087088C /* PR2StudioSwift.podspec */; };
-		6D11C21A204B59130087088C /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C219204B59130087088C /* Cartfile.resolved */; };
-		6D11C21C204B591B0087088C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C21B204B591B0087088C /* Cartfile */; };
 		6D11C21F204B59650087088C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C21E204B59650087088C /* README.md */; };
 		6D11C221204B596C0087088C /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 6D11C220204B596C0087088C /* CHANGELOG.md */; };
 		6D453F5A20B02818005A3F98 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D453F5920B02818005A3F98 /* UIButton+Extensions.swift */; };
 		6D453F5C20B0285D005A3F98 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D453F5B20B0285D005A3F98 /* String+Extensions.swift */; };
 		6D668AA5204B1281003B1C35 /* PR2StudioSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D668A9B204B1280003B1C35 /* PR2StudioSwift.framework */; };
 		6D7452E9204BED440038F237 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7452E8204BED440038F237 /* Coordinator.swift */; };
-		6D78C8CF204B1D4E0024726E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D78C8CE204B1D4E0024726E /* Alamofire.framework */; };
 		6DA6FBE220C44FC9006AD2A9 /* PR2ViewWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA6FBE120C44FC9006AD2A9 /* PR2ViewWaiting.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,7 +121,6 @@
 		6D668A9B204B1280003B1C35 /* PR2StudioSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PR2StudioSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D668AA4204B1281003B1C35 /* PR2StudioSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PR2StudioSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D7452E8204BED440038F237 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		6D78C8CE204B1D4E0024726E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		6DA6FBE120C44FC9006AD2A9 /* PR2ViewWaiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PR2ViewWaiting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D78C8CF204B1D4E0024726E /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +271,6 @@
 		6D668AD2204B1556003B1C35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6D78C8CE204B1D4E0024726E /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -320,7 +314,6 @@
 				6D668A97204B1280003B1C35 /* Frameworks */,
 				6D668A98204B1280003B1C35 /* Headers */,
 				6D668A99204B1280003B1C35 /* Resources */,
-				6D0A22E8215FE84B002F5E42 /* Carthage Copy frameworks */,
 				6D7452EA204BEE880038F237 /* SwiftLint */,
 			);
 			buildRules = (
@@ -413,9 +406,7 @@
 			files = (
 				6D11C214204B58EA0087088C /* LICENSE in Resources */,
 				6D11C221204B596C0087088C /* CHANGELOG.md in Resources */,
-				6D11C21A204B59130087088C /* Cartfile.resolved in Resources */,
 				6D11C21F204B59650087088C /* README.md in Resources */,
-				6D11C21C204B591B0087088C /* Cartfile in Resources */,
 				6D11C216204B58FC0087088C /* PR2StudioSwift.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,26 +421,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6D0A22E8215FE84B002F5E42 /* Carthage Copy frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-			);
-			name = "Carthage Copy frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		6D7452EA204BEE880038F237 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,10 +597,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -694,10 +662,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
