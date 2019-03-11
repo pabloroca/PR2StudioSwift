@@ -44,7 +44,7 @@ public extension URLRequest {
 
     /// Request retryConfiguration
     private static var _retryConfiguration = [String: RetryConfiguration?]()
-    public var retryConfiguration: RetryConfiguration? {
+    internal var retryConfiguration: RetryConfiguration? {
         get {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
             return URLRequest._retryConfiguration[tmpAddress] ?? nil
