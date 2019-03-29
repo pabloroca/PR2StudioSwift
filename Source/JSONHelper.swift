@@ -23,7 +23,7 @@ public final class JSONHelper {
         guard
             let jsonFileURL = bundleToUse.path(forResource: file, ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: jsonFileURL), options: .alwaysMapped),
-            let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+            let dictionary = ((try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]) as [String: Any]??),
             let dictionaryParsed = dictionary
             else {
                 return [:]

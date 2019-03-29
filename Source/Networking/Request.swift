@@ -18,7 +18,7 @@ public extension URLRequest {
     // MARK: - properties
     /// Error if any
     private static var _networkingError = [String: NetworkingError?]()
-    public var error: NetworkingError? {
+    var error: NetworkingError? {
         get {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
             return URLRequest._networkingError[tmpAddress] ?? nil
@@ -31,7 +31,7 @@ public extension URLRequest {
 
     /// Request id
     private static var _id = [String: String]()
-    public var id: String {
+    var id: String {
         get {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
             return URLRequest._id[tmpAddress] ?? ""
@@ -66,7 +66,7 @@ public extension URLRequest {
     ///   - encoding: parameters encoding (defaults to json and body)
     ///   - headers: headers [String: String]?
     ///   - bearerToken: Auth bearer token String?
-    public init?(_ url: String, method: HTTPMethod = .get, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = .url, headers: [String: String]? = nil, retryConfiguration: RetryConfiguration? = nil, bearerToken: String? = nil) {
+    init?(_ url: String, method: HTTPMethod = .get, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = .url, headers: [String: String]? = nil, retryConfiguration: RetryConfiguration? = nil, bearerToken: String? = nil) {
         guard let url = URL(string: url) else {
             return nil
         }
@@ -114,7 +114,7 @@ public extension URLRequest {
     /// Creates a Bearer token in the headers
     ///
     /// - Parameter bearerToken: bearer Token
-    public mutating func setBearerToken(_ bearerToken: String) {
+    mutating func setBearerToken(_ bearerToken: String) {
         self.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
     }
 }

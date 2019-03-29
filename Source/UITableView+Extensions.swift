@@ -84,7 +84,7 @@ public extension UITableView {
     /// - Returns: A UITableViewHeaderFooterView instance of an expected type
     func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withIdentifier identifier: String) -> T {
         guard let cell = self.dequeueReusableHeaderFooterView(withIdentifier: identifier) as? T else {
-            fatalError("Expected cell \(identifier) at index \(indexPath)")
+            fatalError("Expected cell \(identifier) at index \(String(describing: indexPath))")
         }
         return cell
     }
